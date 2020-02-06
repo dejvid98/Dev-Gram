@@ -6,12 +6,6 @@
   list-style: none;
 }
 
-@-moz-document url-prefix() { 
-  .join-buttons {
-     color: lime;
-  }
-}
-
 
 .parent-div {
   background-image: url("../../Assets/LandingPage/cover.png");
@@ -41,8 +35,8 @@
   display: -ms-flexbox;
   display: flex;
   position: relative;
-  left: 65rem;
-  top: 36rem;
+  left: 75.5rem;
+  top: 40.5rem;
   height: 2px;
 }
 
@@ -52,9 +46,25 @@
     display: -ms-flexbox;
     display: flex;
     position: relative  ;
-    left: 43.5rem;
-    top: 36rem;
+    left: 53.2rem;
+    top: 40.5rem;
       height: 2px;
 
   }
+}
+
+.register-form{
+  position: relative;
+  display: flex;
+  top: 15rem;
+  padding: 3rem;
+  border: thin solid #dadce0;;
+  height: 25rem;
+  width: 25rem;
+  border-radius: 15px;
+  flex-direction: column;
+}
+
+.name-fields{
+  display: flex;
 }

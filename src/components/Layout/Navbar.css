@@ -2,7 +2,7 @@
     position: relative;
     justify-content: center;
     display: flex;
-    left: 91rem;
+    left: 105rem;
 }
 
 @media (max-width : 1940px){
@@ -10,7 +10,7 @@
     position: relative;
     justify-content: center;
     display: flex;
-    left: 69rem;
+    left: 81rem;
 }
 }
 
@@ -26,6 +26,7 @@
   position: relative;
   overflow: hidden;
 }
+
 .hvr-underline-from-center:before {
   content: "";
   position: absolute;
