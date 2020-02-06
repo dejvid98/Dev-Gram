@@ -1,0 +1,60 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  list-style: none;
+}
+
+@-moz-document url-prefix() { 
+  .join-buttons {
+     color: lime;
+  }
+}
+
+
+.parent-div {
+  background-image: url("../../Assets/LandingPage/cover.png");
+  height: 100vh;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+}
+
+.register-div {
+  background-image: url("../../Assets/LandingPage/Register.png");
+  height: 100vh;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+}
+.join-buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  left: 65rem;
+  top: 36rem;
+  height: 2px;
+}
+
+@media (max-width: 1940px) {
+  .join-buttons {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    position: relative  ;
+    left: 43.5rem;
+    top: 36rem;
+      height: 2px;
+
+  }
+}
