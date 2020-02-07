@@ -3,9 +3,7 @@ import Navbar from "../Layout/Navbar";
 import TextField from "@material-ui/core/TextField";
 import Checkbox from "../micro-components/Checkbox";
 import Button from "@material-ui/core/Button";
-import * as firebase from "firebase/app";
-import "firebase/auth";
-import "firebase/firestore";
+import firebase from '../../firebase'
 
 
 const Register = props => {
