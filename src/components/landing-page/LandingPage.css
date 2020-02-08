@@ -1,70 +1,157 @@
 * {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  list-style: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    list-style: none;
 }
 
-
 .parent-div {
-  background-image: url("../../Assets/LandingPage/cover.png");
-  height: 100vh;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  display: flex;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
+    background-image: url('../../Assets/LandingPage/cover.png');
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
 }
 
 .register-div {
-  background-image: url("../../Assets/LandingPage/Register.png");
-  height: 100vh;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  display: flex;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
+    background-image: url('../../Assets/LandingPage/Register.png');
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
 }
 .join-buttons {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  position: relative;
-  left: 75.5rem;
-  top: 40.5rem;
-  height: 2px;
-}
-
-@media (max-width: 1940px) {
-  .join-buttons {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    position: relative  ;
-    left: 53.2rem;
+    position: relative;
+    left: 75.5rem;
     top: 40.5rem;
-      height: 2px;
-
-  }
+    height: 2px;
 }
 
-.register-form{
-  position: relative;
-  display: flex;
-  top: 15rem;
-  padding: 3rem;
-  border: thin solid #dadce0;;
-  height: 25rem;
-  width: 25rem;
-  border-radius: 15px;
-  flex-direction: column;
+.register-form {
+    position: relative;
+    display: flex;
+    top: 15rem;
+    padding: 3rem;
+    border: thin solid #dadce0;
+    height: 25rem;
+    width: 25rem;
+    border-radius: 15px;
+    flex-direction: column;
+    left: 4rem;
 }
 
-.name-fields{
-  display: flex;
+.name-fields {
+    display: flex;
+}
+.g-sign-in-button {
+    margin-top: 18px;
+    display: inline-block;
+    width: 400px;
+    height: 50px;
+    background-color: #fff;
+    color: #fff;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+    transition: background-color 0.218s, border-color 0.218s, box-shadow 0.218s;
+    box-sizing: border-box;
+    border-radius: 10px;
+    text-align: center;
+    color: black;
+}
+.g-sign-in-button:hover {
+    cursor: pointer;
+    -webkit-box-shadow: 0 0 3px 3px rgba(66, 133, 244, 0.3);
+    box-shadow: 0 0 3px 3px rgba(66, 133, 244, 0.3);
+    box-sizing: border-box;
+}
+.g-sign-in-button:active {
+    background-color: #3367d6;
+    transition: background-color 0.2s;
+    box-sizing: border-box;
+}
+.g-sign-in-button .content-wrapper {
+    height: 100%;
+    width: 100%;
+    border: 1px solid transparent;
+    box-sizing: border-box;
+}
+.g-sign-in-button img {
+    width: 18px;
+    height: 18px;
+    box-sizing: border-box;
+}
+.g-sign-in-button .logo-wrapper {
+    padding: 15px;
+    background: #fff;
+    width: 48px;
+    height: 100%;
+    border-radius: 1px;
+    display: inline-block;
+    box-sizing: border-box;
+}
+.g-sign-in-button .text-container {
+    font-family: Roboto, arial, sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.21px;
+    font-size: 16px;
+    line-height: 48px;
+    vertical-align: top;
+    border: none;
+    display: inline-block;
+    text-align: center;
+    width: 180px;
+    box-sizing: border-box;
+}
+
+.errors {
+    display: flex;
+    flex-direction: column;
+    width: 25.5rem;
+    position: absolute;
+    left: 40rem;
+    top: 11rem;
+}
+
+@media (max-width: 1940px) {
+    .register-form {
+        position: relative;
+        display: flex;
+        top: 15rem;
+        padding: 3rem;
+        border: thin solid #dadce0;
+        height: 25rem;
+        width: 25rem;
+        border-radius: 15px;
+        flex-direction: column;
+        left: -10rem;
+    }
+    .join-buttons {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        position: relative;
+        left: 53.2rem;
+        top: 40.5rem;
+        height: 2px;
+    }
+
+    .errors {
+        display: flex;
+        flex-direction: column;
+        width: 25.5rem;
+        position: absolute;
+        left: 26rem;
+        top: 11rem;
+    }
 }
