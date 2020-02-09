@@ -1,15 +1,18 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
+import { Link } from 'react-router-dom'
+import firebase from '../../firebase'
+import TextField from '@material-ui/core/TextField'
+import Button from '@material-ui/core/Button'
 import isEmail from 'validator/lib/isEmail'
 import equals from 'validator/lib/equals'
 import isEmpty from 'validator/lib/isEmpty'
 
-import ErrorMsg from '../micro-components/Error'
-import Navbar from '../Layout/Navbar'
-import TextField from '@material-ui/core/TextField'
-import Checkbox from '../micro-components/Checkbox'
-import Button from '@material-ui/core/Button'
-import GoogleButton from '../micro-components/GoogleButton'
-import firebase from '../../firebase'
+import ErrorMsg from '../MicroComponents/Error'
+import LoggedInNavbar from '../Layout/LoggedInNavbar'
+import LoggedOutNavbar from '../Layout/LoggedOutNavbar'
+import Checkbox from '../MicroComponents/Checkbox'
+import GoogleButton from '../MicroComponents/GoogleButton'
+import { AppContext } from '../../Context'
 
 const Register = props => {
     const [email, setEmail] = useState('')
@@ -22,6 +25,10 @@ const Register = props => {
     const [emailError2, setEmailError2] = useState(0)
     const [passwordError, setPasswordError] = useState(0)
     const [passwordError2, setPasswordError2] = useState(0)
+
+    const { isLoggedInContext } = useContext(AppContext)
+    //eslint-disable-next-line
+    const [isLoggedIn, setIsLoggedIn] = isLoggedInContext
 
     const handleEmail = e => {
         setEmail(e.target.value)
@@ -43,19 +50,22 @@ const Register = props => {
         setConfirmPassword(e.target.value)
     }
 
+    // Signs up users using firebase
+    // Checks if user already exists
     const signUp = () => {
         firebase
             .auth()
             .createUserWithEmailAndPassword(email, password)
             .catch(function(error) {
                 console.log(error)
-                 setEmailError2(1)
-                 setTimeout(() => {
-                     setEmailError2(0)
-                 }, 3000)
+                setEmailError2(1)
+                setTimeout(() => {
+                    setEmailError2(0)
+                }, 3000)
             })
     }
 
+    // Does input validation
     const handleRegistration = () => {
         if (isEmpty(firstName) || isEmpty(lastName)) {
             setNameError(1)
@@ -72,21 +82,21 @@ const Register = props => {
             setTimeout(() => {
                 setPasswordError(0)
             }, 3000)
-        } else if(password.length<=5){
-           setPasswordError2(1)
-           setTimeout(() => {
-               setPasswordError2(0)
-           }, 3000)
+        } else if (password.length <= 5) {
+            setPasswordError2(1)
+            setTimeout(() => {
+                setPasswordError2(0)
+            }, 3000)
         } else {
-          signUp();
+            signUp()
         }
     }
 
     return (
         <div>
             <div className="register-div">
-                <Navbar />
-                <div className="errors">
+                {isLoggedIn ? <LoggedInNavbar /> : <LoggedOutNavbar />}
+                <div className="errors-register">
                     {emailError === 1 ? (
                         <ErrorMsg errorText="Please enter valid email" />
                     ) : null}
@@ -169,6 +179,12 @@ const Register = props => {
                         Sign Up with email
                     </Button>
                     <GoogleButton name="Sign Up with Google" />
+
+                    <Button style={{ marginTop: '25px ' }}>
+                        <Link to="/login" style={{ textDecoration: 'none' }}>
+                            Already Registered?
+                        </Link>
+                    </Button>
                 </div>
             </div>
         </div>

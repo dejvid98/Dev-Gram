@@ -1,0 +1,206 @@
+@mixin backgroundImg {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+}
+
+// Ultrawide desktop screens
+@media (max-width: 4098px) {
+    .join-buttons {
+        display: flex;
+        position: absolute;
+        left: 110rem;
+        top: 40.5rem;
+        height: 2px;
+    }
+
+    .register-form {
+        position: absolute;
+        display: flex;
+        top: 13.5rem;
+        padding: 3rem;
+        border: thin solid #dadce0;
+        height: 28rem;
+        width: 25rem;
+        border-radius: 15px;
+        flex-direction: column;
+        left: 40rem;
+    }
+
+    .login-form {
+        position: absolute;
+        display: flex;
+        top: 15rem;
+        padding: 3rem;
+        border: thin solid #dadce0;
+        height: 20rem;
+        width: 25rem;
+        border-radius: 15px;
+        flex-direction: column;
+        left: 40rem;
+    }
+
+    .errors-register {
+        display: flex;
+        flex-direction: column;
+        width: 25.5rem;
+        position: absolute;
+        left: 43rem;
+        top: 10rem;
+    }
+
+    .errors-login {
+        display: flex;
+        flex-direction: column;
+        width: 25.5rem;
+        position: absolute;
+        left: 43rem;
+        top: 11rem;
+    }
+}
+
+//Regular desktop screens
+@media (max-width: 1940px) {
+    .join-buttons {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        position: absolute;
+        left: 84.6rem;
+        top: 40.5rem;
+        height: 2px;
+    }
+
+    .register-form {
+        position: absolute;
+        display: flex;
+        top: 12rem;
+        padding: 3rem;
+        border: thin solid #dadce0;
+        height: 27.5rem;
+        width: 25rem;
+        border-radius: 15px;
+        flex-direction: column;
+        left: 24rem;
+    }
+
+    .login-form {
+        position: absolute;
+        display: flex;
+        top: 15rem;
+        padding: 3rem;
+        border: thin solid #dadce0;
+        height: 20rem;
+        width: 25rem;
+        border-radius: 15px;
+        flex-direction: column;
+        left: 24rem;
+    }
+
+    .errors-register {
+        display: flex;
+        flex-direction: column;
+        width: 25.5rem;
+        position: absolute;
+        left: 26.5rem;
+        top: 8rem;
+    }
+
+    .errors-login {
+        display: flex;
+        flex-direction: column;
+        width: 25.5rem;
+        position: absolute;
+        left: 26.5rem;
+        top: 11rem;
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    list-style: none;
+}
+
+.parent-div {
+    background-image: url('../../Assets/LandingPage/cover.png');
+    height: 100vh;
+    @include backgroundImg();
+    display: flex;
+}
+
+.register-div {
+    background-image: url('../../Assets/LandingPage/Register.png');
+    height: 100vh;
+    display: flex;
+    @include backgroundImg();
+}
+
+.name-fields {
+    display: flex;
+}
+
+.g-sign-in-button {
+    margin-top: 18px;
+    display: inline-block;
+    width: 400px;
+    height: 50px;
+    background-color: #fff;
+    color: #fff;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+    transition: background-color 0.218s, border-color 0.218s, box-shadow 0.218s;
+    box-sizing: border-box;
+    border-radius: 10px;
+    text-align: center;
+    color: black;
+    &:hover {
+        cursor: pointer;
+        -webkit-box-shadow: 0 0 3px 3px rgba(66, 133, 244, 0.3);
+        box-shadow: 0 0 3px 3px rgba(66, 133, 244, 0.3);
+        box-sizing: border-box;
+    }
+    &:active {
+        background-color: #3367d6;
+        transition: background-color 0.2s;
+        box-sizing: border-box;
+    }
+    .content-wrapper {
+        height: 100%;
+        width: 100%;
+        border: 1px solid transparent;
+        box-sizing: border-box;
+    }
+    img {
+        width: 18px;
+        height: 18px;
+        box-sizing: border-box;
+    }
+
+    .logo-wrapper {
+        padding: 15px;
+        background: #fff;
+        width: 48px;
+        height: 100%;
+        border-radius: 1px;
+        display: inline-block;
+        box-sizing: border-box;
+    }
+    .text-container {
+        font-family: Roboto, arial, sans-serif;
+        font-weight: 500;
+        letter-spacing: 0.21px;
+        font-size: 16px;
+        line-height: 48px;
+        vertical-align: top;
+        border: none;
+        display: inline-block;
+        text-align: center;
+        width: 180px;
+        box-sizing: border-box;
+    }
+}
