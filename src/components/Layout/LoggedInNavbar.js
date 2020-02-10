@@ -11,17 +11,23 @@ const Navbar = props => {
     //eslint-disable-next-line
     const [isLoggedIn, setIsLoggedIn] = isLoggedInContext
 
-    const logOut = () =>{
-        auth.signOut();
-        setIsLoggedIn(false)
+    const stateToSessionStorage = state => {
+        sessionStorage.setItem('isLoggedIn', state)
     }
+
+    const logOut =async  () => {
+        stateToSessionStorage(false)
+        setIsLoggedIn(false)
+        auth.signOut()
+    }
+
     return (
         <div className="logged-in-navbar" style={{ height: '1rem' }}>
             <NavBarButton name="Home" link="/" />
             <NavBarButton name="About Us" link="/aboutus" />
             <NavBarButton name="Contact Us" link="/help" />
             <NavBarButton name="Profile" link="/profile" />
-            <NavBarButton name="Log Out" link="/" logOut={logOut}/>
+            <NavBarButton name="Log Out" link="/" logOut={logOut} />
         </div>
     )
 }

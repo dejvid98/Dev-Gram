@@ -50,19 +50,41 @@ const Register = props => {
         setConfirmPassword(e.target.value)
     }
 
-    // Signs up users using firebase
+    const stateToSessionStorage = state => {
+        sessionStorage.setItem('isLoggedIn', state)
+    }
+
+    const cleanUpForm = () => {
+        setEmail('')
+        setFirstName('')
+        setLastName('')
+        setPassword('')
+        setConfirmPassword('')
+    }
+
+    // Signs up and logs in user using firebase
     // Checks if user already exists
     const signUp = () => {
-        firebase
-            .auth()
-            .createUserWithEmailAndPassword(email, password)
-            .catch(function(error) {
-                console.log(error)
-                setEmailError2(1)
-                setTimeout(() => {
-                    setEmailError2(0)
-                }, 3000)
-            })
+        const fullName = `${firstName} ${lastName}`
+        try {
+            firebase
+                .auth()
+                .createUserWithEmailAndPassword(email, password)
+                .then(function(result) {
+                    return result.user.updateProfile({
+                        displayName: fullName,
+                    })
+                })
+            stateToSessionStorage(true)
+            setIsLoggedIn(true)
+            cleanUpForm()
+        } catch (error) {
+            console.log(error)
+            setEmailError2(1)
+            setTimeout(() => {
+                setEmailError2(0)
+            }, 3000)
+        }
     }
 
     // Does input validation

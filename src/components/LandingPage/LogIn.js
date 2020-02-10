@@ -18,9 +18,14 @@ const Register = props => {
     const [emailError2, setEmailError2] = useState(0)
     const [passwordError2, setPasswordError2] = useState(0)
 
+
     const { isLoggedInContext } = useContext(AppContext)
-    //eslint-disable-next-line
     const [isLoggedIn, setIsLoggedIn] = isLoggedInContext
+
+    // Saves state of logged in user to local storage
+    const stateToSessionStorage = state => {
+        sessionStorage.setItem('isLoggedIn', state)
+    }
 
     const handleEmail = e => {
         setEmail(e.target.value)
@@ -31,15 +36,22 @@ const Register = props => {
     }
 
     // Signs in user with email and password using firebase
-    // Checks if users exists first 
+    // Checks if users exists first
     const signIn = async () => {
         try {
             const response = await firebase
                 .auth()
-                .signInWithEmailAndPassword(email, password)
-            const { code } = response
-            if (code === undefined) {
+                .setPersistence(firebase.auth.Auth.Persistence.SESSION)
+                .then(function() {
+                    return firebase
+                        .auth()
+                        .signInWithEmailAndPassword(email, password)
+                })
+            console.log(firebase.auth().currentUser)
+            if (response.code === undefined) {
                 setIsLoggedIn(true)
+                stateToSessionStorage(true)
+                console.log(response.code)
             }
         } catch (error) {
             console.log(error)
@@ -70,7 +82,7 @@ const Register = props => {
     return (
         <div>
             <div className="register-div">
-                {isLoggedIn?<LoggedInNavbar/>:<LoggedOutNavbar/>}
+                {isLoggedIn ? <LoggedInNavbar /> : <LoggedOutNavbar />}
                 {/*  Renders errors according to input */}
                 <div className="errors-login">
                     {emailError === 1 ? (
@@ -121,6 +133,7 @@ const Register = props => {
                             Create an account
                         </Link>
                     </Button>
+                    <button onClick={() =>console.log(firebase.auth().currentUser)}>click me</button>
                 </div>
             </div>
         </div>

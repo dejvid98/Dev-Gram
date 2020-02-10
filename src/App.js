@@ -1,21 +1,35 @@
-import React from 'react'
-import { Route, Switch } from 'react-router-dom'
+import React, { useContext, useEffect } from 'react'
+import { Route, Switch, Redirect } from 'react-router-dom'
 
-import { ContextProvider } from './Context'
 import LandingPage from './components/LandingPage/LangdingPage'
 import Register from './components/LandingPage/Register'
 import Login from './components/LandingPage/LogIn'
-
+import { AppContext } from './Context'
 
 function App() {
+    const { isLoggedInContext } = useContext(AppContext)
+    //eslint-disable-next-line
+    const [isLoggedIn, setIsLoggedIn] = isLoggedInContext
+
+    const getSessionUser = async () => {
+        const userData = await sessionStorage.getItem('isLoggedIn')
+        setIsLoggedIn(userData)
+    }
+
+    useEffect(() => {
+        getSessionUser();
+    }, [])
+
     return (
-        <ContextProvider>
-            <Switch>
-                <Route exact={true} path="/" component={LandingPage} />
-                <Route exact={true} path="/register" component={Register} />
-                <Route exact={true} path="/login" component={Login} />
-            </Switch>
-        </ContextProvider>
+        <Switch>
+            <Route exact={true} path="/" component={LandingPage} />
+            <Route exact={true} path="/register">
+                {isLoggedIn ? <Redirect exact to="/" /> : <Register />}
+            </Route>
+            <Route exact={true} path="/login">
+                {isLoggedIn ? <Redirect exact to="/" /> : <Login />}
+            </Route>
+        </Switch>
     )
 }
 
