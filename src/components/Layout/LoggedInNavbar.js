@@ -15,7 +15,7 @@ const Navbar = props => {
         sessionStorage.setItem('isLoggedIn', state)
     }
 
-    const logOut =async  () => {
+    const logOut = () => {
         stateToSessionStorage(false)
         setIsLoggedIn(false)
         auth.signOut()

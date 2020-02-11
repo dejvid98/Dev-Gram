@@ -4,21 +4,26 @@ import { Route, Switch, Redirect } from 'react-router-dom'
 import LandingPage from './components/LandingPage/LangdingPage'
 import Register from './components/LandingPage/Register'
 import Login from './components/LandingPage/LogIn'
+import Profile from './components/Profile/Profile'
 import { AppContext } from './Context'
 
 function App() {
     const { isLoggedInContext } = useContext(AppContext)
-    //eslint-disable-next-line
     const [isLoggedIn, setIsLoggedIn] = isLoggedInContext
 
+    // Checks in session storage if user is logged in
     const getSessionUser = async () => {
         const userData = await sessionStorage.getItem('isLoggedIn')
         setIsLoggedIn(userData)
     }
 
-    useEffect(() => {
-        getSessionUser();
-    }, [])
+    useEffect(
+        () => {
+            getSessionUser()
+        },
+        // eslint-disable-next-line
+        []
+    )
 
     return (
         <Switch>
@@ -28,6 +33,9 @@ function App() {
             </Route>
             <Route exact={true} path="/login">
                 {isLoggedIn ? <Redirect exact to="/" /> : <Login />}
+            </Route>
+            <Route exact={true} path="/profile">
+                {isLoggedIn ? <Profile /> : <Redirect exact to="/" />}
             </Route>
         </Switch>
     )

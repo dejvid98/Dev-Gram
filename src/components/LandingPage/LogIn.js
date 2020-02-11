@@ -17,8 +17,6 @@ const Register = props => {
     const [emailError, setEmailError] = useState(0)
     const [emailError2, setEmailError2] = useState(0)
     const [passwordError2, setPasswordError2] = useState(0)
-
-
     const { isLoggedInContext } = useContext(AppContext)
     const [isLoggedIn, setIsLoggedIn] = isLoggedInContext
 
@@ -133,7 +131,11 @@ const Register = props => {
                             Create an account
                         </Link>
                     </Button>
-                    <button onClick={() =>console.log(firebase.auth().currentUser)}>click me</button>
+                    <button
+                        onClick={() => console.log(firebase.auth().currentUser)}
+                    >
+                        click me
+                    </button>
                 </div>
             </div>
         </div>
