@@ -11,7 +11,7 @@ const useStyles = makeStyles(theme => ({
     },
 }))
 
-export default function MultilineTextFields() {
+export default function MultilineTextFields(props) {
     const classes = useStyles()
 
 
@@ -24,6 +24,8 @@ export default function MultilineTextFields() {
                 rows="6"
                 defaultValue="Tell us about yourself"
                 variant="outlined"
+                value={props.value}
+                onChange={props.handleBioChange}
             />
         </form>
     )

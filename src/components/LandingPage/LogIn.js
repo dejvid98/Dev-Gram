@@ -45,11 +45,9 @@ const Register = props => {
                         .auth()
                         .signInWithEmailAndPassword(email, password)
                 })
-            console.log(firebase.auth().currentUser)
             if (response.code === undefined) {
                 setIsLoggedIn(true)
                 stateToSessionStorage(true)
-                console.log(response.code)
             }
         } catch (error) {
             console.log(error)
@@ -131,11 +129,6 @@ const Register = props => {
                             Create an account
                         </Link>
                     </Button>
-                    <button
-                        onClick={() => console.log(firebase.auth().currentUser)}
-                    >
-                        click me
-                    </button>
                 </div>
             </div>
         </div>

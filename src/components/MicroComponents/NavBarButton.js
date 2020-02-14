@@ -17,8 +17,8 @@ const NavBarButton = props => {
                     color="primary"
                     style={{
                         fontSize: '1.5rem',
-                        color: '#08374E',
-                        width: '12rem',
+                        width: '20rem',
+                        color:"white"
                     }}
                     className="hvr-underline-from-center"
                 >
