@@ -7,113 +7,83 @@
     -o-background-size: cover;
 }
 
-// Ultrawide desktop screens
-@media (max-width: 4098px) {
-    .join-buttons {
-        display: flex;
-        position: absolute;
-        left: 110rem;
-        top: 40.5rem;
-        height: 2px;
-    }
+.join-buttons {
+    display: flex;
+    position: absolute;
+    left: 110rem;
+    top: 40.5rem;
+    height: 2px;
+}
 
-    .register-form {
-        position: absolute;
-        display: flex;
-        top: 13.5rem;
-        padding: 3rem;
-        border: thin solid #dadce0;
-        height: 28rem;
-        width: 25rem;
-        border-radius: 15px;
-        flex-direction: column;
-        left: 40rem;
-    }
+.register-form {
+    position: absolute;
+    display: flex;
+    top: 13.5rem;
+    padding: 3rem;
+    border: 3px solid rgba(155, 155, 155, 0.2);
+    height: 28rem;
+    width: 25rem;
+    border-radius: 15px;
+    flex-direction: column;
+    left: 40rem;
+}
 
-    .login-form {
-        position: absolute;
-        display: flex;
-        top: 15rem;
-        padding: 3rem;
-        border: thin solid #dadce0;
-        height: 20rem;
-        width: 25rem;
-        border-radius: 15px;
-        flex-direction: column;
-        left: 40rem;
-    }
+.login-form {
+    position: absolute;
+    display: flex;
+    top: 15rem;
+    padding: 3rem;
+    border: 3px solid rgba(155, 155, 155, 0.2);
+    height: 20rem;
+    width: 25rem;
+    border-radius: 15px;
+    flex-direction: column;
+    left: 40rem;
+}
 
-    .errors-register {
-        display: flex;
-        flex-direction: column;
-        width: 25.5rem;
-        position: absolute;
-        left: 43rem;
-        top: 10rem;
-    }
+.errors-register {
+    display: flex;
+    flex-direction: column;
+    width: 25.5rem;
+    position: absolute;
+    left: 43rem;
+    top: 10rem;
+}
 
-    .errors-login {
-        display: flex;
-        flex-direction: column;
-        width: 25.5rem;
-        position: absolute;
-        left: 43rem;
-        top: 11rem;
-    }
+.errors-login {
+    display: flex;
+    flex-direction: column;
+    width: 25.5rem;
+    position: absolute;
+    left: 43rem;
+    top: 11rem;
 }
 
 //Regular desktop screens
 @media (max-width: 1940px) {
     .join-buttons {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        position: absolute;
         left: 86rem;
         top: 40.5rem;
-        height: 2px;
     }
 
     .register-form {
-        position: absolute;
-        display: flex;
         top: 12rem;
-        padding: 3rem;
-        border: thin solid #dadce0;
-        height: 27.5rem;
         width: 25rem;
-        border-radius: 15px;
-        flex-direction: column;
         left: 24rem;
     }
 
     .login-form {
-        position: absolute;
-        display: flex;
         top: 15rem;
-        padding: 3rem;
-        border: thin solid #dadce0;
-        height: 20rem;
         width: 25rem;
-        border-radius: 15px;
-        flex-direction: column;
         left: 24rem;
     }
 
     .errors-register {
-        display: flex;
-        flex-direction: column;
-        width: 25.5rem;
-        position: absolute;
         left: 26.5rem;
         top: 8rem;
     }
 
     .errors-login {
-        display: flex;
-        flex-direction: column;
-        width: 25.5rem;
-        position: absolute;
         left: 26.5rem;
         top: 11rem;
     }
@@ -146,16 +116,18 @@
 }
 
 .g-sign-in-button {
-    margin-top: 18px;
+    margin-top: 10px;
     display: inline-block;
     width: 400px;
-    height: 50px;
+    height: 35px;
+
+    padding-top: 3px;
     background-color: #fff;
     color: #fff;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
     transition: background-color 0.218s, border-color 0.218s, box-shadow 0.218s;
     box-sizing: border-box;
-    border-radius: 10px;
+    border-radius: 5px;
     text-align: center;
     color: black;
     &:hover {
@@ -174,6 +146,9 @@
         width: 100%;
         border: 1px solid transparent;
         box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     img {
         width: 18px;
@@ -184,23 +159,39 @@
     .logo-wrapper {
         padding: 15px;
         background: #fff;
-        width: 48px;
-        height: 100%;
+        position: relative;
+        right: 1rem;
+        width: 5px;
+        bottom: 2px;
+        height: 2px;
         border-radius: 1px;
-        display: inline-block;
-        box-sizing: border-box;
+        background-image: url('http://uniquehealthinc.com/wp-content/uploads/2019/01/google-logo-icon-PNG-Transparent-Background-768x768.png');
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
     }
     .text-container {
         font-family: Roboto, arial, sans-serif;
         font-weight: 500;
         letter-spacing: 0.21px;
-        font-size: 16px;
+        font-size: 14px;
+        font-weight: 500;
         line-height: 48px;
         vertical-align: top;
+        margin-top: 4px;
         border: none;
-        display: inline-block;
         text-align: center;
         width: 180px;
         box-sizing: border-box;
+        position: relative;
+        right: 1rem;
     }
+}
+
+.redirect-text {
+    margin-top: 3rem;
+    margin-left: 6rem;
 }

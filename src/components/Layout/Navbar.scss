@@ -2,35 +2,10 @@
     position: absolute;
     justify-content: center;
     display: flex;
-    // left: 59rem;
     height: 40px;
 }
 
-.logged-out-navbar {
-    position: absolute;
-    justify-content: center;
-    display: flex;
-    // left: 81rem;
-    height: 40px;
-}
 
-@media (min-width: 2500px) {
-    .logged-out-navbar {
-        position: relative;
-        justify-content: center;
-        display: flex;
-        // left: 120rem;
-        height: 2px;
-    }
-
-    .logged-in-navbar {
-        position: relative;
-        justify-content: center;
-        display: flex;
-        // left: 99.5rem;
-        height: 2px;
-    }
-}
 
 .hvr-underline-from-center {
     display: inline-block;

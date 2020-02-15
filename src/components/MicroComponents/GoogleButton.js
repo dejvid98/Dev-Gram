@@ -13,14 +13,7 @@ const GoogleButton = props => {
             .auth()
             .signInWithPopup(provider)
             .then(function(result) {
-                // This gives you a Google Access Token. You can use it to access the Google API.
-                //eslint-disable-next-line
-                const token = result.credential.accessToken
-                // The signed-in user info.
-                const user = result.user
-                console.log(user)
                 setIsLoggedIn(true);
-                // ...
             })
             .catch(function(error) {
                 console.log(error)
@@ -31,10 +24,6 @@ const GoogleButton = props => {
         <div className="g-sign-in-button" onClick={handleGoogle}>
             <div className="content-wrapper">
                 <div className="logo-wrapper">
-                    <img
-                        src="https://developers.google.com/identity/images/g-logo.png"
-                        alt=""
-                    />
                 </div>
                 <span className="text-container">
                     <span>{props.name}</span>

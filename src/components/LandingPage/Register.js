@@ -6,10 +6,8 @@ import Button from '@material-ui/core/Button'
 import isEmail from 'validator/lib/isEmail'
 import equals from 'validator/lib/equals'
 import isEmpty from 'validator/lib/isEmpty'
-
 import ErrorMsg from '../MicroComponents/Error'
-import LoggedInNavbar from '../Layout/LoggedInNavbar'
-import LoggedOutNavbar from '../Layout/LoggedOutNavbar'
+import Navbar from '../Layout/Navbar'
 import Checkbox from '../MicroComponents/Checkbox'
 import GoogleButton from '../MicroComponents/GoogleButton'
 import { AppContext } from '../../Context'
@@ -117,7 +115,7 @@ const Register = props => {
     return (
         <div>
             <div className="register-div">
-                {isLoggedIn ? <LoggedInNavbar /> : <LoggedOutNavbar />}
+                <Navbar />
                 <div className="errors-register">
                     {emailError === 1 ? (
                         <ErrorMsg errorText="Please enter valid email" />
@@ -195,18 +193,31 @@ const Register = props => {
                             backgroundColor: '#0074D9',
                             marginTop: '25px',
                             boxShadow: '0 2px 4px 0 rgba(0, 0, 0, 0.25)',
+                            height: '35px',
+                            fontSize: '14px',
                         }}
                         onClick={handleRegistration}
                     >
                         Sign Up with email
                     </Button>
-                    <GoogleButton name="Sign Up with Google" />
+                    <GoogleButton name="SIGN UP WITH GOOGLE" />
 
-                    <Button style={{ marginTop: '25px ' }}>
-                        <Link to="/login" style={{ textDecoration: 'none' }}>
-                            Already Registered?
-                        </Link>
-                    </Button>
+                    <span className="redirect-text">
+                        <p>
+                            Already have an account?
+                            <Link
+                                to="/login"
+                                style={{
+                                    textDecoration: 'none',
+                                    color: '#0073b1',
+                                }}
+                            >
+                                <span style={{ marginLeft: '3px' }}>
+                                    Sign in
+                                </span>
+                            </Link>
+                        </p>
+                    </span>
                 </div>
             </div>
         </div>

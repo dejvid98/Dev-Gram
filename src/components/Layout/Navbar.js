@@ -3,7 +3,7 @@ import NavBarButton from '../MicroComponents/NavBarButton'
 import './Navbar.scss'
 import { AppContext } from '../../Context'
 import firebase from '../../firebase'
-import NavLogo from '../MicroComponents/NavLogo'
+import NavLogoImg from '../../Assets/LandingPage/NavLogo.svg'
 
 const Navbar = props => {
     const auth = firebase.auth()
@@ -24,12 +24,21 @@ const Navbar = props => {
     return (
         <div className="nav-wrapper">
             <div className="logged-in-navbar" style={{ height: '1rem' }}>
-                <NavLogo/>
+                <div className="nav-logo-img">
+                    <img className="nav-logo-img" src={NavLogoImg} alt="logo" />
+                </div>
+
                 <NavBarButton name="Home" link="/" />
                 <NavBarButton name="About Us" link="/aboutus" />
                 <NavBarButton name="Contact Us" link="/help" />
-                <NavBarButton name="Profile" link="/profile" />
-                <NavBarButton name="Log Out" link="/" logOut={logOut} />
+                {isLoggedIn ? (
+                    <>
+                        <NavBarButton name="Profile" link="/profile" />
+                        <NavBarButton name="Log Out" link="/" logOut={logOut} />
+                    </>
+                ) : (
+                    <NavBarButton name="Login" link="/login" />
+                )}
             </div>
         </div>
     )

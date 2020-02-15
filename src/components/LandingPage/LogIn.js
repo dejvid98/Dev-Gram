@@ -6,8 +6,7 @@ import TextField from '@material-ui/core/TextField'
 import isEmail from 'validator/lib/isEmail'
 
 import ErrorMsg from '../MicroComponents/Error'
-import LoggedInNavbar from '../Layout/LoggedInNavbar'
-import LoggedOutNavbar from '../Layout/LoggedOutNavbar'
+import Navbar from '../Layout/Navbar'
 import GoogleButton from '../MicroComponents/GoogleButton'
 import { AppContext } from '../../Context'
 
@@ -18,6 +17,7 @@ const Register = props => {
     const [emailError2, setEmailError2] = useState(0)
     const [passwordError2, setPasswordError2] = useState(0)
     const { isLoggedInContext } = useContext(AppContext)
+    //eslint-disable-next-line
     const [isLoggedIn, setIsLoggedIn] = isLoggedInContext
 
     // Saves state of logged in user to local storage
@@ -78,8 +78,7 @@ const Register = props => {
     return (
         <div>
             <div className="register-div">
-                {isLoggedIn ? <LoggedInNavbar /> : <LoggedOutNavbar />}
-                {/*  Renders errors according to input */}
+                <Navbar />
                 <div className="errors-login">
                     {emailError === 1 ? (
                         <ErrorMsg errorText="Please enter valid email" />
@@ -124,11 +123,23 @@ const Register = props => {
                         Sign In with email
                     </Button>
                     <GoogleButton name="Sign In with Google" />
-                    <Button to="/register" style={{ marginTop: '25px ' }}>
-                        <Link to="/register" style={{ textDecoration: 'none' }}>
-                            Create an account
-                        </Link>
-                    </Button>
+
+                    <span className="redirect-text">
+                        <p>
+                            Don't have an account?
+                            <Link
+                                to="/register"
+                                style={{
+                                    textDecoration: 'none',
+                                    color: '#0073b1',
+                                }}
+                            >
+                                <span style={{ marginLeft: '3px' }}>
+                                    Sign up
+                                </span>
+                            </Link>
+                        </p>
+                    </span>
                 </div>
             </div>
         </div>

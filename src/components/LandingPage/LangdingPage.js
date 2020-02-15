@@ -1,11 +1,9 @@
 import React, { useContext } from 'react'
-
+import { Link } from 'react-router-dom'
 import './LandingPage.scss'
-import RegisterButton from '../MicroComponents/RegisterButton'
-import LoginButton from '../MicroComponents/LoginButton'
-import LoggedInNavbar from '../Layout/LoggedInNavbar'
-import LoggedOutNavbar from '../Layout/LoggedOutNavbar'
+import Navbar from '../Layout/Navbar'
 import { AppContext } from '../../Context'
+import { Button } from '@material-ui/core'
 
 const LangdingPage = props => {
     const { isLoggedInContext } = useContext(AppContext)
@@ -14,11 +12,26 @@ const LangdingPage = props => {
 
     return (
         <div className="parent-div">
-            {isLoggedIn ? <LoggedInNavbar /> : <LoggedOutNavbar />}
+            <Navbar />
             {isLoggedIn ? null : (
                 <div className="join-buttons">
-                    <RegisterButton />
-                    <LoginButton />
+                    <Link to="/register" style={{ textDecoration: 'none' }}>
+                        <Button
+                            className="join-button"
+                            variant="contained"
+                            style={{
+                                backgroundColor: '#1DE9B6',
+                                height: '4rem',
+                                borderRadius: '2rem',
+                                fontSize: '2rem',
+                                textAlign: 'center',
+                                color: 'white',
+                                width: '13rem',
+                            }}
+                        >
+                            JOIN US
+                        </Button>
+                    </Link>
                 </div>
             )}
         </div>
