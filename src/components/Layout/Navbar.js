@@ -1,4 +1,5 @@
 import React, { useContext } from 'react'
+import { Link } from 'react-router-dom'
 import NavBarButton from '../MicroComponents/NavBarButton'
 import './Navbar.scss'
 import { AppContext } from '../../Context'
@@ -25,10 +26,16 @@ const Navbar = props => {
         <div className="nav-wrapper">
             <div className="logged-in-navbar" style={{ height: '1rem' }}>
                 <div className="nav-logo-img">
-                    <img className="nav-logo-img" src={NavLogoImg} alt="logo" />
+                    <Link to="/">
+                        <img
+                            className="nav-logo-img"
+                            src={NavLogoImg}
+                            alt="logo"
+                        />
+                    </Link>
                 </div>
 
-                <NavBarButton name="Home" link="/" />
+                <NavBarButton name="Home" link="/home" />
                 <NavBarButton name="About Us" link="/aboutus" />
                 <NavBarButton name="Contact Us" link="/help" />
                 {isLoggedIn ? (

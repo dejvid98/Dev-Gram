@@ -1,10 +1,10 @@
 import React, { useContext, useEffect } from 'react'
 import { Route, Switch, Redirect } from 'react-router-dom'
-
 import LandingPage from './components/LandingPage/LangdingPage'
 import Register from './components/LandingPage/Register'
 import Login from './components/LandingPage/LogIn'
 import Profile from './components/Profile/Profile'
+import HomePage from './components/HomePage/HomePage'
 import { AppContext } from './Context'
 
 function App() {
@@ -28,6 +28,7 @@ function App() {
     return (
         <Switch>
             <Route exact={true} path="/" component={LandingPage} />
+            <Route exact={true} path="/home" component={HomePage} />
             <Route exact={true} path="/register">
                 {isLoggedIn ? <Redirect exact to="/" /> : <Register />}
             </Route>

@@ -5,8 +5,6 @@
     height: 40px;
 }
 
-
-
 .hvr-underline-from-center {
     display: inline-block;
     vertical-align: middle;
@@ -15,6 +13,7 @@
     box-shadow: 0 0 1px rgba(0, 0, 0, 0);
     position: relative;
     overflow: hidden;
+    width: 20rem;
 
     &:before {
         content: '';
@@ -41,19 +40,26 @@
     }
 }
 
-.nav-wrapper{
-    background-color: #20232A;
+.nav-wrapper {
+    background-color: #20232a;
     width: 100%;
     height: 3.5rem;
     display: flex;
     justify-content: center;
 }
 
-.nav-logo-img{
+.nav-logo-img {
     height: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-top: 8px;
+}
+
+// Laptop screens
+@media screen and (min-device-width: 1200px) and (max-device-width: 1690px) and (-webkit-min-device-pixel-ratio: 1) {
+    .hvr-underline-from-center {
+        width: 15rem;
+    }
 }

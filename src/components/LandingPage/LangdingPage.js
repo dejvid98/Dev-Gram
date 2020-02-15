@@ -27,6 +27,7 @@ const LangdingPage = props => {
                                 textAlign: 'center',
                                 color: 'white',
                                 width: '13rem',
+
                             }}
                         >
                             JOIN US

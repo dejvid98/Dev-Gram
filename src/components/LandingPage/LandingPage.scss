@@ -10,7 +10,7 @@
 .join-buttons {
     display: flex;
     position: absolute;
-    left: 110rem;
+    left: 111rem;
     top: 40.5rem;
     height: 2px;
 }
@@ -59,6 +59,8 @@
     top: 11rem;
 }
 
+
+
 //Regular desktop screens
 @media (max-width: 1940px) {
     .join-buttons {
@@ -102,6 +104,7 @@
     height: 100vh;
     @include backgroundImg();
     display: flex;
+    max-width: 100%;
 }
 
 .register-div {
@@ -109,6 +112,7 @@
     height: 100vh;
     display: flex;
     @include backgroundImg();
+    max-width: 100%;
 }
 
 .name-fields {
@@ -195,3 +199,4 @@
     margin-top: 3rem;
     margin-left: 6rem;
 }
+
