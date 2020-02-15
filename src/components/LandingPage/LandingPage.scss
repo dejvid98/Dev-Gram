@@ -7,12 +7,26 @@
     -o-background-size: cover;
 }
 
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    list-style: none;
+    font-size: 1em;
+}
+
 .join-buttons {
     display: flex;
-    position: absolute;
-    left: 111rem;
-    top: 40.5rem;
+    position: relative;
     height: 2px;
+    div {
+        flex-basis: 6.9%;
+        position: relative;
+        height: 40rem;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+    }
 }
 
 .register-form {
@@ -59,13 +73,20 @@
     top: 11rem;
 }
 
-
-
 //Regular desktop screens
 @media (max-width: 1940px) {
     .join-buttons {
-        left: 86rem;
-        top: 40.5rem;
+        display: flex;
+        position: relative;
+        height: 2px;
+        div {
+            flex-basis: 7.2%;
+            position: relative;
+            height: 40rem;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+        }
     }
 
     .register-form {
@@ -91,12 +112,13 @@
     }
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    list-style: none;
+@media (max-width: 1450px) {
+    .join-buttons {
+        div {
+            flex-basis: 7.7%;
+            height: 36rem;
+        }
+    }
 }
 
 .parent-div {
@@ -105,6 +127,7 @@
     @include backgroundImg();
     display: flex;
     max-width: 100%;
+    flex-direction: column;
 }
 
 .register-div {
@@ -199,4 +222,3 @@
     margin-top: 3rem;
     margin-left: 6rem;
 }
-

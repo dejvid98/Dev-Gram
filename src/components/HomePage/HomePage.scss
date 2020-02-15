@@ -4,14 +4,14 @@
 }
 
 #interface-container {
-    flex-basis: 25%;
+    flex-basis: 20%;
     display: flex;
     flex-direction: column;
     height: 100vh;
 }
 
 #main-container {
-    flex-basis: 55%;
+    flex-basis: 60%;
     height: 100vh;
 }
 
@@ -68,7 +68,7 @@
     font-size: 2.5rem;
 
     p {
-        font-size: 2rem;
+        font-size: 1.5rem;
         font-family: Roboto, arial, sans-serif;
         color: #5b5c5a;
         margin-left: 1rem;
@@ -84,7 +84,7 @@
     font-size: 2.5rem;
 
     p {
-        font-size: 2rem;
+        font-size: 1.5rem;
         font-family: Roboto, arial, sans-serif;
         color: #5b5c5a;
         margin-left: 1rem;
