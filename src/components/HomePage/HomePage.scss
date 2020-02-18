@@ -1,3 +1,9 @@
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .container-wrapper {
     display: flex;
     height: 100vh;
@@ -43,9 +49,7 @@
 .user-name-interface {
     font-size: 2rem;
     flex-basis: 80%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include flex-center();
     font-family: Roboto, arial, sans-serif;
 }
 
@@ -62,9 +66,8 @@
 .interface-navigation-item {
     height: 5.5rem;
     background-color: #cdd5d5;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex-center();
+
     font-size: 2.5rem;
 
     p {
@@ -78,9 +81,8 @@
 .interface-navigation-item-second {
     height: 5.5rem;
     background-color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex-center();
+
     font-size: 2.5rem;
 
     p {
@@ -93,4 +95,76 @@
 
 .interface-icons {
     min-height: 20rem;
+}
+
+.articles-wrapper {
+    @include flex-center();
+    flex-direction: column;
+}
+
+.main-container {
+    @include flex-center();
+    flex-direction: column;
+}
+
+.status-poster {
+    height: 2rem;
+    width: 35rem;
+    height: 12rem;
+    @include flex-center();
+
+    flex-direction: column;
+}
+
+.status-poster-title {
+    font-size: 1.5rem;
+    font-family: Roboto, arial, sans-serif;
+}
+
+.articles {
+    width: 80%;
+    @include flex-center();
+}
+
+.status-poster-button {
+    @include flex-center();
+    width: 100%;
+}
+
+.status-list {
+    margin-top: 4rem;
+    width: 50rem;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    border: 1px solid black;
+}
+
+@media (max-width: 1450px) {
+    .interface-navigation-item {
+        height: 5rem;
+        font-size: 2rem;
+
+        p {
+            font-size: 1rem;
+            margin-left: 1rem;
+        }
+    }
+
+    .interface-navigation-item-second {
+        height: 5rem;
+        font-size: 2rem;
+
+        p {
+            font-size: 1rem;
+            margin-left: 1rem;
+        }
+    }
+
+    .user-name-interface {
+        font-size: 1rem;
+        flex-basis: 80%;
+    }
 }
