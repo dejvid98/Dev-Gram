@@ -32,7 +32,6 @@ const StatusPoster = () => {
                 timestamp,
             })
             .then(function() {
-                console.log('Document successfully written!')
                 setText('')
             })
             .catch(function(error) {
@@ -58,6 +57,7 @@ const StatusPoster = () => {
                 multiline={true}
                 rows="3"
                 onChange={handleText}
+                value={text}
             />
             <Button variant="contained" color="primary" onClick={handleSubmit}>
                 Submit
