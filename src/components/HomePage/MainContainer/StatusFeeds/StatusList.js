@@ -4,16 +4,16 @@ import Status from './Status'
 
 const StatusList = () => {
     const [postsState, setPostsState] = useState([])
-    const posts = db.collection('posts')
 
+    // Listens for updates from posts database
     useEffect(() => {
-        posts.get().then(function(querySnapshot) {
+        const posts = db.collection('posts')
+        posts.onSnapshot(function(querySnapshot) {
+            const postsCollection = []
             querySnapshot.forEach(function(doc) {
-                console.log(doc.id, ' => ', doc.data())
-                const postsCollection = []
-                postsCollection.push(doc.data())
-                setPostsState(postsCollection)
+                postsCollection.push({ id: doc.id, data: doc.data() })
             })
+            setPostsState(postsCollection)
         })
     }, [])
 
@@ -21,7 +21,16 @@ const StatusList = () => {
         <div className="status-list">
             {postsState.map(post => {
                 console.log(postsState)
-                return <Status firstName={post.firstName} />
+                return (
+                    <Status
+                        firstName={post.data.firstName}
+                        lastName={post.data.lastName}
+                        photoURL={post.data.photoURL}
+                        text={post.data.text}
+                        timestamp={post.data.timestamp}
+                        key={post.id}
+                    />
+                )
             })}
         </div>
     )

@@ -4,13 +4,17 @@
     align-items: center;
 }
 
+body {
+    font-family: 'Lato', sans-serif;
+}
+
 .container-wrapper {
     display: flex;
     height: 100vh;
 }
 
 #interface-container {
-    flex-basis: 20%;
+    flex-basis: 25%;
     display: flex;
     flex-direction: column;
     height: 100vh;
@@ -22,7 +26,7 @@
 }
 
 #side-container {
-    flex-basis: 20%;
+    flex-basis: 15%;
     height: 100vh;
 }
 
@@ -118,7 +122,6 @@
 
 .status-poster-title {
     font-size: 1.5rem;
-    font-family: Roboto, arial, sans-serif;
 }
 
 .articles {
@@ -133,13 +136,67 @@
 
 .status-list {
     margin-top: 4rem;
-    width: 50rem;
+    width: 40rem;
     height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    border: 1px solid black;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.post {
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+    margin-left: 2rem;
+    width: 30rem;
+
+    .post-heading {
+        display: flex;
+    }
+
+    .post-avatar {
+        width: 4.5rem;
+        img {
+            width: 4.5rem;
+            height: 4.5rem;
+        }
+    }
+
+    .post-user {
+        width: 25rem;
+        display: flex;
+        flex-direction: column;
+        .username {
+            font-family: 'Lato', sans-serif;
+            font-size: 1.3rem;
+            margin-left: 1rem;
+        }
+        .timestamp {
+            font-family: 'Lato', sans-serif;
+            margin-left: 1rem;
+            font-size: 0.7rem;
+            color: #5b5c5a;
+        }
+    }
+
+    .post-text {
+        margin-top: 0.5rem;
+        font-family: 'Lato', sans-serif;
+        margin-bottom: 1rem;
+        p {
+            font-size: 20px;
+        }
+    }
+
+    .post-buttons {
+        display: flex;
+        align-content: space-evenly;
+        span {
+            width: 5rem;
+            flex-basis: 33%;
+            margin: 0.1rem;
+        }
+    }
 }
 
 @media (max-width: 1450px) {
