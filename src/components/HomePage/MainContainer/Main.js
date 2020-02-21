@@ -5,7 +5,6 @@ import StatusList from './StatusFeeds/StatusList'
 const MainContainer = () => {
     return (
         <div id="main-container">
-            {/* <NewsFeed /> */}
             <div className="articles-wrapper">
                 <div className="articles">
                     <StatusPoster />

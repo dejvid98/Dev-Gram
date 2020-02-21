@@ -104,19 +104,24 @@ body {
 .articles-wrapper {
     @include flex-center();
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .main-container {
     @include flex-center();
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .status-poster {
     height: 2rem;
-    width: 35rem;
-    height: 12rem;
-    @include flex-center();
-
+    display: flex;
+    margin-top: 5rem;
+    margin-bottom: 2rem;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
 }
 
@@ -136,19 +141,18 @@ body {
 
 .status-list {
     margin-top: 4rem;
-    width: 40rem;
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    margin-left: 3rem;
 }
 
 .post {
     margin-top: 1rem;
     margin-bottom: 1.5rem;
-    margin-left: 2rem;
-    width: 30rem;
+    width: 35rem;
 
     .post-heading {
         display: flex;
@@ -196,6 +200,17 @@ body {
             flex-basis: 33%;
             margin: 0.1rem;
         }
+    }
+}
+
+.post-like-avatar {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 20%;
+    img {
+        width: 3rem;
+        height: 3rem;
+        border-radius: 20%;
     }
 }
 
