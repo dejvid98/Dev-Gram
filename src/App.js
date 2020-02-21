@@ -5,6 +5,7 @@ import Register from './components/LandingPage/Register'
 import Login from './components/LandingPage/LogIn'
 import Profile from './components/Profile/Profile'
 import HomePage from './components/HomePage/HomePage'
+import LikedPosts from './components/LikedPosts'
 import { AppContext } from './Context'
 
 function App() {
@@ -29,6 +30,8 @@ function App() {
         <Switch>
             <Route exact={true} path="/" component={LandingPage} />
             <Route exact={true} path="/home" component={HomePage} />
+            <Route exact={true} path="/likedposts" component={LikedPosts} />
+
             <Route exact={true} path="/register">
                 {isLoggedIn ? <Redirect exact to="/" /> : <Register />}
             </Route>

@@ -5,6 +5,8 @@ import Status from './Status'
 const StatusList = () => {
     const [postsState, setPostsState] = useState([])
     const postLikes = db.collection('postLikes')
+    const [postLikesState, setPostLikesState] = useState()
+    const likedPosts = []
 
     // Listens for updates from posts database
     // And lists all the posts in descending order
@@ -13,22 +15,20 @@ const StatusList = () => {
         const postsCollection = []
         posts.orderBy('timestamp', 'desc').onSnapshot(function(querySnapshot) {
             querySnapshot.forEach(function(doc) {
-                let likes = []
-                postLikes
-                    .where('postID', '==', doc.id)
-                    .get()
-                    .then(function(querySnapshot) {
-                        querySnapshot.forEach(function(doc) {
-                            likes.push(doc.data())
-                        })
-                    })
                 postsCollection.push({
                     id: doc.id,
                     data: doc.data(),
-                    likes: likes,
                 })
             })
             setPostsState(postsCollection)
+        })
+
+        db.collection('postLikes').onSnapshot(querySnapshot => {
+            querySnapshot.forEach(doc => {
+                likedPosts.push(doc.data().whoLiked)
+            })
+            setPostLikesState(likedPosts)
+            // console.log(likedPosts)
         })
     }, [])
 
@@ -44,7 +44,7 @@ const StatusList = () => {
                         timestamp={post.data.timestamp}
                         key={post.id}
                         uid={post.id}
-                        likes={post.likes}
+                        likes={likedPosts}
                     />
                 )
             })}
