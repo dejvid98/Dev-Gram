@@ -4,13 +4,12 @@ import firebase from '../../firebase'
 import Button from '@material-ui/core/Button'
 import TextField from '@material-ui/core/TextField'
 import isEmail from 'validator/lib/isEmail'
-
 import ErrorMsg from '../MicroComponents/Error'
 import Navbar from '../Layout/Navbar'
 import GoogleButton from '../MicroComponents/GoogleButton'
 import { AppContext } from '../../Context'
 
-const Register = props => {
+const Login = props => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [emailError, setEmailError] = useState(0)
@@ -146,4 +145,4 @@ const Register = props => {
     )
 }
 
-export default Register
+export default Login

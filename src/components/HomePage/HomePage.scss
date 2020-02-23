@@ -14,14 +14,16 @@ body {
 }
 
 #interface-container {
-    flex-basis: 25%;
+    flex-basis: 20%;
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    position: sticky;
+    height: 1px;
+    top: 56px;
 }
 
 #main-container {
-    flex-basis: 60%;
+    flex-basis: 70%;
     height: 100vh;
 }
 
@@ -32,6 +34,8 @@ body {
 
 .user-profile {
     display: flex;
+    background-color: #003459;
+    color: white;
 }
 
 .profile-photo-interface {
@@ -41,6 +45,7 @@ body {
     margin-left: 1rem;
     margin-top: 1rem;
     flex-basis: 20%;
+    margin-bottom: 1rem;
 }
 
 .profile-photo-interface img {
@@ -51,15 +56,15 @@ body {
 }
 
 .user-name-interface {
-    font-size: 2rem;
+    font-size: 1.5rem;
     flex-basis: 80%;
+    margin-left: 1rem;
     @include flex-center();
     font-family: Roboto, arial, sans-serif;
 }
 
 .hr-interface {
-    border: 2px solid rgba(155, 155, 155, 0.2);
-    margin-top: 1rem;
+    border: 1px solid white;
 }
 
 .interface-navigation {
@@ -68,31 +73,29 @@ body {
 }
 
 .interface-navigation-item {
-    height: 5.5rem;
-    background-color: #cdd5d5;
+    height: 5.82rem;
+    background-color: #003459;
     @include flex-center();
-
     font-size: 2.5rem;
 
     p {
         font-size: 1.5rem;
         font-family: Roboto, arial, sans-serif;
-        color: #5b5c5a;
+        color: #ffffff;
         margin-left: 1rem;
     }
 }
 
 .interface-navigation-item-second {
-    height: 5.5rem;
-    background-color: white;
+    height: 5.82rem;
+    background-color: #003459;
     @include flex-center();
-
     font-size: 2.5rem;
 
     p {
         font-size: 1.5rem;
         font-family: Roboto, arial, sans-serif;
-        color: #5b5c5a;
+        color: #ffffff;
         margin-left: 1rem;
     }
 }
@@ -116,13 +119,17 @@ body {
 }
 
 .status-poster {
-    height: 2rem;
+    height: 15rem;
+    width: 40rem;
     display: flex;
-    margin-top: 5rem;
-    margin-bottom: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 0rem;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background-color: #f1f3f3;
+    z-index: -1;
+    border-radius: 7px;
 }
 
 .status-poster-title {

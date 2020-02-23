@@ -1,15 +1,31 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 import firebase, { db } from '../../../../firebase'
 
 const StatusPoster = () => {
-    const currentUser = firebase.auth().currentUser
-    let { photoURL, displayName } = currentUser
-    const fullName = displayName.split(' ')
-    const firstName = fullName[0]
-    const lastName = fullName[1]
-    const [text, setText] = useState()
+    let currentUser
+    let photoURL
+    let displayName
+    let fullName
+    let firstName
+    let lastName
+    let [text, setText] = useState()
+
+    const checkIfLoggedIn = () => {
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+                currentUser = firebase.auth().currentUser
+                photoURL = currentUser.photoURL
+                displayName = currentUser.displayName
+                fullName = displayName.split(' ')
+                firstName = fullName[0]
+                lastName = fullName[1]
+            } else {
+                currentUser = {}
+            }
+        })
+    }
 
     if (!photoURL) {
         photoURL =
@@ -23,6 +39,7 @@ const StatusPoster = () => {
     // Creates a new post in database
     const handleSubmit = () => {
         const timestamp = new Date().toLocaleString()
+
         db.collection('posts')
             .add({
                 firstName,
@@ -41,12 +58,24 @@ const StatusPoster = () => {
         setText('')
     }
 
+    useEffect(
+        () => {
+            checkIfLoggedIn()
+        },
+        //eslint-disable-next-line
+        []
+    )
+
     return (
         <div className="status-poster">
             <h1 className="status-poster-title">What's on your mind?</h1>
+
             <TextField
                 id="filled-full-width"
-                style={{ marginLeft: '2rem', width: '30rem' }}
+                style={{
+                    width: '30rem',
+                    backgroundColor: 'white',
+                }}
                 placeholder="Let the world know!"
                 fullWidth
                 margin="normal"

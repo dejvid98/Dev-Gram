@@ -70,12 +70,14 @@ const Register = props => {
                 .createUserWithEmailAndPassword(email, password)
                 .then(function(result) {
                     return result.user.updateProfile({
-                        displayName: fullName
+                        displayName: fullName,
                     })
                 })
-            stateToSessionStorage(true)
-            setIsLoggedIn(true)
-            cleanUpForm()
+                .then(() => {
+                    stateToSessionStorage(true)
+                    setIsLoggedIn(true)
+                    cleanUpForm()
+                })
         } catch (error) {
             console.log(error)
             setEmailError2(1)

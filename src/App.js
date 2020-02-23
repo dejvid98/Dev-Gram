@@ -6,23 +6,28 @@ import Login from './components/LandingPage/LogIn'
 import Profile from './components/Profile/Profile'
 import HomePage from './components/HomePage/HomePage'
 import { AppContext } from './Context'
+import firebase from './firebase'
 
 function App() {
     const { isLoggedInContext } = useContext(AppContext)
     const [isLoggedIn, setIsLoggedIn] = isLoggedInContext
 
-    // Checks in session storage if user is logged in
-    const getSessionUser = async () => {
-        const userData = await sessionStorage.getItem('isLoggedIn')
-        setIsLoggedIn(userData)
+    const checkIfLoggedIn = async () => {
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+                setIsLoggedIn(true)
+            } else {
+                setIsLoggedIn(false)
+            }
+        })
     }
 
     useEffect(
         () => {
-            getSessionUser()
+            checkIfLoggedIn()
         },
         // eslint-disable-next-line
-        []
+        [isLoggedIn]
     )
 
     return (

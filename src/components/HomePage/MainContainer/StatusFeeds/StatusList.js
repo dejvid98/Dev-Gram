@@ -11,6 +11,7 @@ const StatusList = () => {
     useEffect(() => {
         const posts = db.collection('posts')
         let postsCollection = []
+        
         posts.orderBy('timestamp', 'desc').onSnapshot(function(querySnapshot) {
             querySnapshot.forEach(function(doc) {
                 postsCollection.push({

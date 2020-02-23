@@ -122,7 +122,7 @@
 }
 
 .parent-div {
-    background-image: url('../../Assets/LandingPage/cover.png');
+    background-image: url('../../Assets/LandingPage/CoverReworked.png');
     height: 100vh;
     @include backgroundImg();
     display: flex;
@@ -131,7 +131,7 @@
 }
 
 .register-div {
-    background-image: url('../../Assets/LandingPage/Register.png');
+    background-image: url('../../Assets/LandingPage/LoginPage.png');
     height: 100vh;
     display: flex;
     @include backgroundImg();

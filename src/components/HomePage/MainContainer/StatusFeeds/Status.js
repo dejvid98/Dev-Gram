@@ -12,6 +12,7 @@ const Status = props => {
     const posts = db.collection('postLikes')
     const uid = props.uid
 
+    // Gets realtime updates from database for posts
     useEffect(
         () => {
             let postArr = []
@@ -35,6 +36,7 @@ const Status = props => {
                 e.data.whoLiked === currentUser.displayName &&
                 e.data.postID === uid
         )
+
         if (!didLike) {
             await db.collection('postLikes').add({
                 postID: uid,
@@ -50,6 +52,7 @@ const Status = props => {
                 <div className="post-avatar">
                     <img src={props.photoURL} alt="" />
                 </div>
+
                 <div className="post-user">
                     <p className="username">
                         {props.firstName} {props.lastName}
@@ -67,6 +70,7 @@ const Status = props => {
                     <PostLikesDialog posts={postState} />
                 ) : null}
             </div>
+
             <hr style={{ borderTop: '3px solid rgba(155, 155, 155, 0.4)' }} />
 
             <div className="post-buttons">
@@ -80,6 +84,7 @@ const Status = props => {
                         Like
                     </Button>
                 </span>
+
                 <span>
                     <Button
                         startIcon={<ChatBubbleIcon />}
@@ -89,6 +94,7 @@ const Status = props => {
                         Comment
                     </Button>
                 </span>
+
                 <span>
                     <Button
                         startIcon={<ShareIcon />}

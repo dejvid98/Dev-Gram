@@ -10,9 +10,9 @@ const HomePage = () => {
         <div>
             <Navbar />
             <div className="container-wrapper">
-                <Interface id="interface"/>
-                <MainContainer id="main-container"/>
-                <SideContainer id="side-container"/>
+                <Interface id="interface-container" />
+                <MainContainer id="main-container" />
+                <SideContainer id="side-container" />
             </div>
         </div>
     )
