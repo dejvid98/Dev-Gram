@@ -22,6 +22,7 @@ const Navbar = props => {
         auth.signOut()
     }
 
+
     return (
         <div className="nav-wrapper">
             <div className="logged-in-navbar" style={{ height: '1rem' }}>
@@ -44,7 +45,10 @@ const Navbar = props => {
                         <NavBarButton name="Log Out" link="/" logOut={logOut} />
                     </>
                 ) : (
-                    <NavBarButton name="Login" link="/login" />
+                    <NavBarButton
+                        name="Login"
+                        link="/login"
+                    />
                 )}
             </div>
         </div>

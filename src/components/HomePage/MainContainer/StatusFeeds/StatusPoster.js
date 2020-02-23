@@ -47,6 +47,7 @@ const StatusPoster = () => {
                 text,
                 photoURL,
                 timestamp,
+                numberOfLikes: 0,
             })
             .then(function() {
                 setText('')
@@ -69,7 +70,6 @@ const StatusPoster = () => {
     return (
         <div className="status-poster">
             <h1 className="status-poster-title">What's on your mind?</h1>
-
             <TextField
                 id="filled-full-width"
                 style={{

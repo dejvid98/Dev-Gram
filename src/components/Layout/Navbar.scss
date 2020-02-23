@@ -41,12 +41,13 @@
 }
 
 .nav-wrapper {
-    background-color: #00171f;
+    background-color: #222831;
     width: 100%;
     height: 3.5rem;
     display: flex;
     justify-content: center;
     position: sticky;
+    z-index: 1;
     top: 0;
 }
 

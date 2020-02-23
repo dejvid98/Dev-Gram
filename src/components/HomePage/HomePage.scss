@@ -22,19 +22,42 @@ body {
     top: 56px;
 }
 
+#interface-container-mini {
+    flex-basis: 6%;
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    height: 1px;
+    top: 56px;
+}
+
 #main-container {
     flex-basis: 70%;
-    height: 100vh;
+    background-color: #eeeeee;
+    height: 100rem;
+}
+
+#main-container-mini {
+    flex-basis: 95%;
+    background-color: #eeeeee;
+    height: 100rem;
 }
 
 #side-container {
     flex-basis: 15%;
-    height: 100vh;
+    background-color: #eeeeee;
+    height: 100rem;
+}
+
+#side-container-mini {
+    flex-basis: 20%;
+    background-color: #eeeeee;
+    height: 100rem;
 }
 
 .user-profile {
     display: flex;
-    background-color: #003459;
+    background-color: #393e46;
     color: white;
 }
 
@@ -74,21 +97,7 @@ body {
 
 .interface-navigation-item {
     height: 5.82rem;
-    background-color: #003459;
-    @include flex-center();
-    font-size: 2.5rem;
-
-    p {
-        font-size: 1.5rem;
-        font-family: Roboto, arial, sans-serif;
-        color: #ffffff;
-        margin-left: 1rem;
-    }
-}
-
-.interface-navigation-item-second {
-    height: 5.82rem;
-    background-color: #003459;
+    background-color: #393e46;
     @include flex-center();
     font-size: 2.5rem;
 
@@ -118,6 +127,12 @@ body {
     align-items: center;
 }
 
+.sort-div {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
 .status-poster {
     height: 15rem;
     width: 40rem;
@@ -127,8 +142,6 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color: #f1f3f3;
-    z-index: -1;
     border-radius: 7px;
 }
 
@@ -147,7 +160,6 @@ body {
 }
 
 .status-list {
-    margin-top: 4rem;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -218,6 +230,41 @@ body {
         width: 3rem;
         height: 3rem;
         border-radius: 20%;
+    }
+}
+
+.side-bar-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.advert {
+    margin-top: 2rem;
+    margin-right: 2rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    p {
+        font-size: 1.3rem;
+        margin: 1rem;
+        letter-spacing: 1px;
+        font-family: 'Lato', sans-serif;
+    }
+    hr {
+        border: 1px solid black;
+        margin-top: 2rem;
+    }
+}
+.ad-image {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    img {
+        height: 100%;
+        width: 100%;
     }
 }
 

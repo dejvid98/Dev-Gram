@@ -2,12 +2,12 @@ import React from 'react'
 import UserProfile from './UserProfile'
 import Navigation from './Navigation'
 
-const Interface = () => {
+const Interface = props => {
     return (
-        <div id="interface-container">
+        <div id={props.conditionalClass}>
             <UserProfile />
             <hr className="hr-interface" />
-            <Navigation />
+            <Navigation markedElement={props.markedElement} />
         </div>
     )
 }

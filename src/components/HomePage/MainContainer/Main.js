@@ -1,16 +1,10 @@
 import React from 'react'
-import StatusPoster from './StatusFeeds/StatusPoster'
-import StatusList from './StatusFeeds/StatusList'
+import StatusMain from './StatusFeeds/StatusMain'
 
-const MainContainer = () => {
+const MainContainer = props => {
     return (
-        <div id="main-container">
-            <div className="articles-wrapper">
-                <div className="articles">
-                    <StatusPoster />
-                </div>
-                <StatusList />
-            </div>
+        <div id={props.conditionalClass}>
+            <StatusMain />
         </div>
     )
 }

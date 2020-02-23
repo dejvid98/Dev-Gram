@@ -43,6 +43,12 @@ const Status = props => {
                 whoLiked: currentUser.displayName,
                 photoURL: currentUser.photoURL,
             })
+            await db
+                .collection('posts')
+                .doc(props.uid)
+                .update({
+                    numberOfLikes: firebase.firestore.FieldValue.increment(1),
+                })
         }
     }
 
