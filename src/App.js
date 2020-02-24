@@ -33,11 +33,7 @@ function App() {
     return (
         <Switch>
             <Route exact={true} path="/" component={LandingPage} />
-            <Route
-                exact={true}
-                path="/home"
-                component={() => <HomePage markedElement={'newsFeed'} />}
-            />
+            <Route exact={true} path="/home" component={() => <HomePage />} />
 
             <Route exact={true} path="/register">
                 {isLoggedIn ? <Redirect exact to="/" /> : <Register />}

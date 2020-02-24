@@ -1,0 +1,35 @@
+.side-bar-wrapper {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+
+.advert {
+   margin-top: 2rem;
+   margin-right: 2rem;
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+   p {
+      font-size: 1.3rem;
+      margin: 1rem;
+      letter-spacing: 1px;
+      font-family: 'Lato', sans-serif;
+      line-height: 2rem;
+   }
+   hr {
+      border: 1px solid black;
+      margin-top: 2rem;
+   }
+}
+.ad-image {
+   height: 100%;
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   img {
+      height: 100%;
+      width: 100%;
+   }
+}

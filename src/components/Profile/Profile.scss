@@ -45,21 +45,20 @@
 }
 
 .profile-photo {
-    width: 16rem;
     max-width: 16rem;
-    height: 16rem;
+    min-width: 16rem;
     max-height: 16rem;
+    min-height: 16rem;;
     border-radius: 10rem;
     margin-left: 2rem;
     margin-top: 1rem;
 
     img {
-        width: 100%;
+        max-width: 16rem;
+        min-width: 16rem;
         border-radius: 50%;
         background-image: cover;
-        height: 15rem;
-        max-height: 100%;
-        height: auto;
+        max-height: 16rem;
     }
 }
 

@@ -2,6 +2,7 @@ import React from 'react'
 import firebaseImg from '../../../Assets/Ads/firebase.png'
 import mongoImg from '../../../Assets/Ads/mongodb.jpg'
 import firefoxImg from '../../../Assets/Ads/firefox.png'
+import './Side.scss'
 
 const SideContainer = props => {
     return (

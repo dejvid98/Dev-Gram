@@ -1,0 +1,23 @@
+.inbox-title-wrapper {
+    display: flex;
+    justify-content: center;
+}
+.inbox-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+
+    p {
+        font-size: 5rem;
+        letter-spacing: 6px;
+    }
+
+    hr {
+        border-top: 2px solid black;
+        width: 130%;
+    }
+}
+// backgroundColor: #08AEEA,
+// backgroundImage: linear-gradient(0deg, #08AEEA 0%, #2AF598 100%),
