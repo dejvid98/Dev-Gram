@@ -20,7 +20,7 @@ const Inbox = props => {
 
    const getSenders = async () => {
       try {
-         const senders = await db
+         await db
             .collection('messages')
             .doc(currentUser.email)
             .collection('senders')

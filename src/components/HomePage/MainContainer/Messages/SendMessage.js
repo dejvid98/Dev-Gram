@@ -5,9 +5,9 @@ import firebase, { db } from '../../../../firebase'
 
 const SendMessage = props => {
    const currentUser = firebase.auth().currentUser
-   const [receiver, setReceiver] = useState('')
    const [message, setMessage] = useState('')
-
+   const [receiver, setReceiver] = useState('')
+   const target = props.target
    const handleMessage = e => {
       setMessage(e.target.value)
    }
@@ -15,6 +15,7 @@ const SendMessage = props => {
    const handleReceiver = e => {
       setReceiver(e.target.value)
    }
+
    const sendMessage = async () => {
       const time = new Date().toLocaleString()
       try {
@@ -31,9 +32,36 @@ const SendMessage = props => {
             .then(
                db
                   .collection('messages')
+                  .doc(currentUser.email)
+                  .collection('senders')
+                  .doc(receiver)
+                  .set({
+                     senderEmail: currentUser.email,
+                     senderName: currentUser.displayName,
+                     senderPhoto: currentUser.photoURL,
+                  })
+            )
+            .then(
+               db
+                  .collection('messages')
                   .doc(receiver)
                   .collection('senders')
                   .doc(currentUser.email)
+                  .collection('messages')
+                  .add({
+                     senderEmail: currentUser.email,
+                     senderName: currentUser.displayName,
+                     senderPhoto: currentUser.photoURL,
+                     text: message,
+                     timestamp: time,
+                  })
+            )
+            .then(
+               db
+                  .collection('messages')
+                  .doc(currentUser.email)
+                  .collection('senders')
+                  .doc(receiver)
                   .collection('messages')
                   .add({
                      senderEmail: currentUser.email,
