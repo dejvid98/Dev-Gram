@@ -50,12 +50,9 @@ export default function AlertDialogSlide(props) {
             </DialogTitle>
             <div style={{ width: '20rem' }}>
                {props.posts.length > 0
-                  ? props.posts.map(post => {
+                  ? props.posts.map((post, index) => {
                        return (
-                          <div
-                             className="post-like-main-wrapper"
-                             key={post.data.postID}
-                          >
+                          <div className="post-like-main-wrapper" key={index}>
                              <div
                                 style={{
                                    display: 'flex',

@@ -1,23 +1,143 @@
 .inbox-title-wrapper {
-    display: flex;
-    justify-content: center;
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+   align-items: center;
 }
 .inbox-title {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 1rem;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   margin-top: 1rem;
 
-    p {
-        font-size: 5rem;
-        letter-spacing: 6px;
-    }
+   p {
+      font-size: 5rem;
+      letter-spacing: 6px;
+   }
 
-    hr {
-        border-top: 2px solid black;
-        width: 130%;
-    }
+   hr {
+      border-top: 2px solid black;
+      width: 130%;
+   }
 }
-// backgroundColor: #08AEEA,
-// backgroundImage: linear-gradient(0deg, #08AEEA 0%, #2AF598 100%),
+
+.send-box {
+   margin-top: 2rem;
+   width: 30%;
+   justify-content: flex-start;
+   display: flex;
+   flex-direction: column;
+   margin-bottom: 1rem;
+}
+
+.message-text {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   margin-top: 1rem;
+   p {
+      font-size: 2rem;
+      letter-spacing: 0.1rem;
+      margin-bottom: 1rem;
+   }
+}
+
+.receiver {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+
+   p {
+      margin-right: 1rem;
+      margin-top: 1rem;
+      font-size: 1.5rem;
+   }
+}
+
+.messages-wrapper {
+   padding: 2rem;
+}
+
+.sender-box {
+   display: flex;
+   align-items: center;
+   background-color: #dee3e3;
+   width: 35rem;
+   border-radius: 2rem;
+   margin-bottom: 2rem;
+   p {
+      font-size: 2rem;
+      letter-spacing: 0rem;
+   }
+
+   .sender-avatar {
+      width: 4.5rem;
+      border-radius: 2rem;
+      margin: 1rem;
+      flex-basis: 20%;
+      img {
+         width: 4.5rem;
+         height: 4.5rem;
+         border-radius: 2rem;
+      }
+   }
+
+   .sender-name {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-basis: 100%;
+   }
+}
+
+.chat-frame {
+   width: 40rem;
+   margin-top: 2rem;
+   border: 2px solid black;
+}
+
+.chat-bubble {
+   margin: 1rem;
+}
+
+.sender-information {
+   display: flex;
+   justify-content: flex-start;
+   align-items: center;
+   p {
+      font-size: 1.2rem;
+      letter-spacing: 0rem;
+      margin-left: 1rem;
+   }
+}
+
+.sender-avatar {
+   width: 3rem;
+   border-radius: 2rem;
+   img {
+      width: 3rem;
+      height: 3rem;
+      border-radius: 2rem;
+   }
+}
+
+.sender-name-wrapper {
+   display: flex;
+   flex-direction: column;
+}
+
+#timestamp {
+   font-size: 0.8rem;
+   color: grey;
+   font-weight: normal;
+}
+
+.sender-text {
+   margin-top: 0.5rem;
+   p {
+      font-size: 1rem;
+      letter-spacing: 0.05rem;
+   }
+}
