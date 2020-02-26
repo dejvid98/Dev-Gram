@@ -67,7 +67,7 @@ const SingleChat = props => {
    }
    useEffect(() => {
       getChat()
-   }, [])
+   }, [message])
 
    return (
       <div className="chat-frame">
