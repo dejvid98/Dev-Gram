@@ -2,11 +2,13 @@ import React, { useState, useEffect } from 'react'
 import firebase, { db } from '../../../../firebase'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
+import ReactLoading from 'react-loading'
 
 const SingleChat = props => {
    const [messages, setMessages] = useState([])
    const currentUser = firebase.auth().currentUser
    const [message, setMessage] = useState('')
+   const [isLoading, setIsLoading] = useState(true)
    const handleMessage = e => {
       setMessage(e.target.value)
    }
@@ -50,7 +52,6 @@ const SingleChat = props => {
 
    const getChat = async () => {
       const messagesCol = []
-      messagesCol.length = 0
 
       const chatResult = await db
          .collection('messages')
@@ -60,39 +61,66 @@ const SingleChat = props => {
          .collection('messages')
          .orderBy('timestamp', 'desc')
          .onSnapshot(querySnapshot => {
+            if (messagesCol.length > 0) {
+               messagesCol.length = 0
+            }
             querySnapshot.forEach(doc => {
-               console.log(doc.data())
                messagesCol.push(doc.data())
             })
             setMessages(messagesCol)
          })
    }
+
+   useEffect(() => {
+      setTimeout(() => {
+         setIsLoading(false)
+      }, 2000)
+   })
    useEffect(() => {
       getChat()
-   }, [message])
+   }, [])
 
    return (
-      <div className="chat-frame">
-         {messages.length > 0
-            ? messages.map((message, index) => {
-                 return (
-                    <div key={index} className="chat-bubble">
-                       <div className="sender-information">
-                          <div className="sender-avatar">
-                             <img src={message.senderPhoto} alt="avatar" />
-                          </div>
-                          <div className="sender-name-wrapper">
-                             <p className="sender-name">{message.senderName}</p>
-                             <p id="timestamp">{message.timestamp}</p>
-                          </div>
-                       </div>
-                       <div className="sender-text">
-                          <p>{message.text}</p>
-                       </div>
-                    </div>
-                 )
-              })
-            : null}
+      <div>
+         <div className="chat-frame">
+            {isLoading ? (
+               <div
+                  style={{
+                     marginLeft: '13rem',
+                     marginTop: '4rem',
+                     marginBottom: '3rem',
+                  }}
+               >
+                  <ReactLoading
+                     type={'spin'}
+                     color={'#FF4136'}
+                     height={200}
+                     width={200}
+                  />
+               </div>
+            ) : messages.length > 0 ? (
+               messages.map((message, index) => {
+                  return (
+                     <div key={index} className="chat-bubble">
+                        <div className="sender-information">
+                           <div className="sender-avatar">
+                              <img src={message.senderPhoto} alt="avatar" />
+                           </div>
+                           <div className="sender-name-wrapper">
+                              <p className="sender-name">
+                                 {message.senderName}
+                              </p>
+                              <p id="timestamp">{message.timestamp}</p>
+                           </div>
+                        </div>
+                        <div className="sender-text">
+                           <p>{message.text}</p>
+                        </div>
+                     </div>
+                  )
+               })
+            ) : null}
+         </div>
          <div className="send-button-wrapper">
             <div className="send-buttons">
                <TextField
