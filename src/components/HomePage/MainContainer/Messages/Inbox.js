@@ -51,17 +51,28 @@ const Inbox = props => {
             ) : (
                <div className="messages-wrapper">
                   {senders.map((sender, index) => {
+                     console.log(sender)
                      return (
                         <div
                            key={index}
                            className="sender-box"
-                           onClick={() => setTarget(sender.senderEmail)}
+                           onClick={() => {
+                              if (sender.senderEmail === currentUser.email) {
+                                 setTarget(sender.receiverEmail)
+                              } else {
+                                 setTarget(sender.senderEmail)
+                              }
+                           }}
                         >
                            <div className="sender-avatar">
                               <img src={sender.senderPhoto} alt="avatar" />
                            </div>
                            <div className="sender-name">
-                              <p>{sender.senderName}</p>
+                              {sender.senderName === currentUser.displayName ? (
+                                 <p>{sender.receiverName}</p>
+                              ) : (
+                                 <p>{sender.senderName}</p>
+                              )}
                            </div>
                         </div>
                      )

@@ -6,7 +6,6 @@ import Button from '@material-ui/core/Button'
 const SingleChat = props => {
    const [messages, setMessages] = useState([])
    const currentUser = firebase.auth().currentUser
-   const [newMessage, setNewMessage] = useState(0)
    const [message, setMessage] = useState('')
    const handleMessage = e => {
       setMessage(e.target.value)
@@ -43,7 +42,6 @@ const SingleChat = props => {
                      timestamp: time,
                   })
             )
-            .then(setNewMessage(newMessage + 1))
             .then(setMessage(''))
       } catch (err) {
          console.log(err)
@@ -52,25 +50,24 @@ const SingleChat = props => {
 
    const getChat = async () => {
       const messagesCol = []
-      await db
+      const chatResult = await db
          .collection('messages')
          .doc(currentUser.email)
          .collection('senders')
          .doc(props.target)
          .collection('messages')
          .orderBy('timestamp', 'desc')
-         .get()
-         .then(doc => {
-            doc.forEach(docData => {
-               messagesCol.push(docData.data())
+         .onSnapshot(querySnapshot => {
+            querySnapshot.forEach(doc => {
+               console.log(doc.data())
+               messagesCol.push(doc.data())
             })
+            setMessages(messagesCol)
          })
-      setMessages(messagesCol)
    }
-
    useEffect(() => {
       getChat()
-   }, [newMessage])
+   }, [])
 
    return (
       <div className="chat-frame">

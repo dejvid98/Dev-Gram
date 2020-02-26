@@ -7,13 +7,19 @@ const SendMessage = props => {
    const currentUser = firebase.auth().currentUser
    const [message, setMessage] = useState('')
    const [receiver, setReceiver] = useState('')
+   const [receiverName, setReceiverName] = useState('')
    const target = props.target
+
    const handleMessage = e => {
       setMessage(e.target.value)
    }
 
    const handleReceiver = e => {
       setReceiver(e.target.value)
+   }
+
+   const handleReceiverName = e => {
+      setReceiverName(e.target.value)
    }
 
    const sendMessage = async () => {
@@ -28,7 +34,10 @@ const SendMessage = props => {
                senderEmail: currentUser.email,
                senderName: currentUser.displayName,
                senderPhoto: currentUser.photoURL,
+               receiverEmail: receiver,
+               receiverName: receiverName,
             })
+
             .then(
                db
                   .collection('messages')
@@ -39,6 +48,8 @@ const SendMessage = props => {
                      senderEmail: currentUser.email,
                      senderName: currentUser.displayName,
                      senderPhoto: currentUser.photoURL,
+                     receiverEmail: receiver,
+                     receiverName: receiverName,
                   })
             )
             .then(
@@ -52,6 +63,8 @@ const SendMessage = props => {
                      senderEmail: currentUser.email,
                      senderName: currentUser.displayName,
                      senderPhoto: currentUser.photoURL,
+                     receiverEmail: receiver,
+                     receiverName: receiverName,
                      text: message,
                      timestamp: time,
                   })
@@ -67,6 +80,8 @@ const SendMessage = props => {
                      senderEmail: currentUser.email,
                      senderName: currentUser.displayName,
                      senderPhoto: currentUser.photoURL,
+                     receiverEmail: receiver,
+                     receiverName: receiverName,
                      text: message,
                      timestamp: time,
                   })
@@ -75,9 +90,9 @@ const SendMessage = props => {
          console.log(err)
       }
    }
-   const seeInbox = () => {
-      sendMessage()
-      props.handleLayout('inbox')
+   const seeInbox = async () => {
+      await sendMessage()
+      await props.handleLayout('inbox')
    }
 
    return (
@@ -88,12 +103,21 @@ const SendMessage = props => {
          </div>
          <div className="send-box">
             <div className="receiver">
-               <p>To : </p>
+               <p>Email : </p>
                <TextField
                   id="standard-basic"
                   label="Receiver"
                   value={receiver}
                   onChange={handleReceiver}
+               />
+            </div>
+            <div className="receiver">
+               <p>Name : </p>
+               <TextField
+                  id="standard-basic"
+                  label="Receiver"
+                  value={receiverName}
+                  onChange={handleReceiverName}
                />
             </div>
             <div className="message-text">
