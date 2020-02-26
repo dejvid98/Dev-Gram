@@ -96,9 +96,16 @@ const Inbox = props => {
                   )}
                </div>
             )}
-            <Button variant="contained" color="primary" onClick={sendMessage}>
-               Send message
-            </Button>
+
+            {isChat ? null : (
+               <Button
+                  variant="contained"
+                  color="primary"
+                  onClick={sendMessage}
+               >
+                  Send message
+               </Button>
+            )}
          </div>
       </div>
    )

@@ -50,6 +50,8 @@ const SingleChat = props => {
 
    const getChat = async () => {
       const messagesCol = []
+      messagesCol.length = 0
+
       const chatResult = await db
          .collection('messages')
          .doc(currentUser.email)
