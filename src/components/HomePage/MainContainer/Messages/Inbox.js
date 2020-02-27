@@ -20,7 +20,6 @@ const Inbox = props => {
    }
 
    // Checks to see with whom user has active chats with
-
    const getSenders = async () => {
       try {
          const sendersData = []
@@ -44,9 +43,9 @@ const Inbox = props => {
          getSenders()
       },
       //eslint-disable-next-line
-      [senders]
+      []
    )
-   
+
    return (
       <div className="inbox-title-wrapper">
          <div className="inbox-title">
@@ -58,6 +57,7 @@ const Inbox = props => {
                   {senders.length > 0 ? (
                      senders.map((sender, index) => {
                         console.log(sender)
+
                         return (
                            <div
                               key={index}
@@ -71,7 +71,18 @@ const Inbox = props => {
                               }}
                            >
                               <div className="sender-avatar">
-                                 <img src={sender.senderPhoto} alt="avatar" />
+                                 {sender.senderPhoto ===
+                                 currentUser.photoURL ? (
+                                    <img
+                                       src={sender.receiverPhoto}
+                                       alt="avatar"
+                                    />
+                                 ) : (
+                                    <img
+                                       src={sender.senderPhoto}
+                                       alt="avatar"
+                                    />
+                                 )}
                               </div>
                               <div className="sender-name">
                                  {sender.senderName ===

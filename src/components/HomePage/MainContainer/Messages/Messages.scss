@@ -13,7 +13,7 @@
 
    p {
       font-size: 5rem;
-      letter-spacing: 6px;
+      letter-spacing: 3px;
    }
 
    hr {
@@ -126,14 +126,6 @@
    }
 }
 
-.sender-text {
-   background-color: #f2f2f2;
-   border-radius: 4rem;
-   display: flex;
-   display: inline-block;
-   padding: 1rem;
-}
-
 .sender-name-wrapper {
    display: flex;
    flex-direction: column;
@@ -147,6 +139,14 @@
 
 .sender-text {
    margin-top: 0.5rem;
+   background-color: #f2f2f2;
+   border-radius: 4rem;
+   display: flex;
+   display: inline-block;
+   padding: 1rem;
+   word-wrap: break-word;
+   white-space: initial;
+   max-width: 30rem;
    p {
       font-size: 1rem;
       letter-spacing: 0.05rem;

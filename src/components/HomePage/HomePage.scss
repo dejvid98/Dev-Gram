@@ -57,7 +57,7 @@ body {
 
 .user-profile {
    display: flex;
-   background-color: #393e46;
+   background-color: #2b2e4a;
    color: white;
 }
 
@@ -85,7 +85,6 @@ body {
    flex-basis: 80%;
    margin-left: 1rem;
    @include flex-center();
-   font-family: Roboto, arial, sans-serif;
 }
 
 .hr-interface {
@@ -99,7 +98,7 @@ body {
 
 .interface-navigation-item {
    height: 5.82rem;
-   background-color: #393e46;
+   background-color: #2b2e4a;
    @include flex-center();
    font-size: 2rem;
    vertical-align: middle;
@@ -121,7 +120,7 @@ body {
    &:hover,
    &:focus,
    &:active {
-      background-color: #00adb5;
+      background-color: #e84545;
       color: white;
    }
 }

@@ -10,117 +10,99 @@ import HelpOutlineRoundedIcon from '@material-ui/icons/HelpOutlineRounded'
 import { AppContext } from '../../../Context'
 
 const Navigation = props => {
-    const { isMiniContext } = useContext(AppContext)
-    //eslint-disable-next-line
-    const [isMini, setIsMini] = isMiniContext
+   const { isMiniContext } = useContext(AppContext)
+   //eslint-disable-next-line
+   const [isMini, setIsMini] = isMiniContext
 
-    const { interFaceNavigationContext } = useContext(AppContext)
+   const { interFaceNavigationContext } = useContext(AppContext)
 
-    const [
-        interfaceNavigation,
-        setInterfaceNavigation,
-    ] = interFaceNavigationContext
+   const [
+      interfaceNavigation,
+      setInterfaceNavigation,
+   ] = interFaceNavigationContext
 
-    const handleNavigation = target => {
-        setInterfaceNavigation(target)
-    }
+   const handleNavigation = target => {
+      setInterfaceNavigation(target)
+   }
 
-    return (
-        <div className="interface-navigation">
-            {interfaceNavigation === 'newsFeed' ? (
-                <div>
-                    <div
-                        className="interface-navigation-item"
-                        style={{
-                            color: 'white',
-                            backgroundColor: '#00adb5',
-                        }}
-                        onClick={() => handleNavigation('newsFeed')}
-                    >
-                        <HomeRoundedIcon fontSize="inherit" />
-                        {isMini ? null : <p>News feed</p>}
-                    </div>
-                </div>
-            ) : (
-                <>
-                    <div
-                        className="interface-navigation-item"
-                        style={{ color: 'white' }}
-                        onClick={() => handleNavigation('newsFeed')}
-                    >
-                        <HomeRoundedIcon fontSize="inherit" />
-                        {isMini ? null : <p>News feed</p>}
-                    </div>
-                </>
-            )}
-            {interfaceNavigation === 'messages' ? (
-                <div
-                    className="interface-navigation-item"
-                    style={{ color: 'white', backgroundColor: '#00adb5' }}
-                    onClick={() => handleNavigation('messages')}
-                >
-                    <MessageRoundedIcon fontSize="inherit" />
-                    {isMini ? null : <p>Messages</p>}
-                </div>
-            ) : (
-                <div
-                    className="interface-navigation-item"
-                    style={{ color: 'white' }}
-                    onClick={() => handleNavigation('messages')}
-                >
-                    <MessageRoundedIcon fontSize="inherit" />
-                    {isMini ? null : <p>Messages</p>}
-                </div>
-            )}
-
-            <div
-                className="interface-navigation-item"
-                style={{ color: 'white' }}
-            >
-                <PhotoSizeSelectActualRoundedIcon fontSize="inherit" />
-                {isMini ? null : <p>Photos</p>}
+   return (
+      <div className="interface-navigation">
+         {interfaceNavigation === 'newsFeed' ? (
+            <div>
+               <div
+                  className="interface-navigation-item"
+                  style={{
+                     color: 'white',
+                     backgroundColor: '#e84545',
+                  }}
+                  onClick={() => handleNavigation('newsFeed')}
+               >
+                  <HomeRoundedIcon fontSize="inherit" />
+                  {isMini ? null : <p>News feed</p>}
+               </div>
             </div>
+         ) : (
+            <>
+               <div
+                  className="interface-navigation-item"
+                  style={{ color: 'white' }}
+                  onClick={() => handleNavigation('newsFeed')}
+               >
+                  <HomeRoundedIcon fontSize="inherit" />
+                  {isMini ? null : <p>News feed</p>}
+               </div>
+            </>
+         )}
+         {interfaceNavigation === 'messages' ? (
             <div
-                className="interface-navigation-item"
-                style={{ color: 'white' }}
+               className="interface-navigation-item"
+               style={{ color: 'white', backgroundColor: '#e84545' }}
+               onClick={() => handleNavigation('messages')}
             >
-                <PeopleAltRoundedIcon fontSize="inherit" />
-                {isMini ? null : <p>Friends</p>}
+               <MessageRoundedIcon fontSize="inherit" />
+               {isMini ? null : <p>Messages</p>}
             </div>
+         ) : (
+            <div
+               className="interface-navigation-item"
+               style={{ color: 'white' }}
+               onClick={() => handleNavigation('messages')}
+            >
+               <MessageRoundedIcon fontSize="inherit" />
+               {isMini ? null : <p>Messages</p>}
+            </div>
+         )}
 
-            <div
-                className="interface-navigation-item"
-                style={{ color: 'white' }}
-            >
-                <AccountBoxRoundedIcon fontSize="inherit" />
-                {isMini ? null : <p>Profile</p>}
-            </div>
+         <div className="interface-navigation-item" style={{ color: 'white' }}>
+            <PhotoSizeSelectActualRoundedIcon fontSize="inherit" />
+            {isMini ? null : <p>Photos</p>}
+         </div>
+         <div className="interface-navigation-item" style={{ color: 'white' }}>
+            <PeopleAltRoundedIcon fontSize="inherit" />
+            {isMini ? null : <p>Friends</p>}
+         </div>
 
-            <div
-                className="interface-navigation-item"
-                style={{ color: 'white' }}
-            >
-                <EventAvailableRoundedIcon fontSize="inherit" />
-                {isMini ? null : <p>Events</p>}
-            </div>
+         <div className="interface-navigation-item" style={{ color: 'white' }}>
+            <AccountBoxRoundedIcon fontSize="inherit" />
+            {isMini ? null : <p>Profile</p>}
+         </div>
 
-            <div
-                className="interface-navigation-item"
-                style={{ color: 'white' }}
-            >
-                <SettingsApplicationsRoundedIcon fontSize="inherit" />
-                {isMini ? null : <p>Settings</p>}
-            </div>
+         <div className="interface-navigation-item" style={{ color: 'white' }}>
+            <EventAvailableRoundedIcon fontSize="inherit" />
+            {isMini ? null : <p>Events</p>}
+         </div>
 
-            <div
-                className="interface-navigation-item"
-                style={{ color: 'white' }}
-            >
-                <HelpOutlineRoundedIcon fontSize="inherit" />
-                {isMini ? null : <p>Help</p>}
-            </div>
-        </div>
-    )
+         <div className="interface-navigation-item" style={{ color: 'white' }}>
+            <SettingsApplicationsRoundedIcon fontSize="inherit" />
+            {isMini ? null : <p>Settings</p>}
+         </div>
+
+         <div className="interface-navigation-item" style={{ color: 'white' }}>
+            <HelpOutlineRoundedIcon fontSize="inherit" />
+            {isMini ? null : <p>Help</p>}
+         </div>
+      </div>
+   )
 }
 
 export default Navigation

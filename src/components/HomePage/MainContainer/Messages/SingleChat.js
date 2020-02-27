@@ -9,7 +9,7 @@ const SingleChat = props => {
    const currentUser = firebase.auth().currentUser
    const [message, setMessage] = useState('')
    const [isLoading, setIsLoading] = useState(true)
-   
+
    const handleMessage = e => {
       setMessage(e.target.value)
    }
@@ -53,7 +53,6 @@ const SingleChat = props => {
 
    // Listens for updates from database for chat logs
    // and updates them to the state
-
    const getChat = async () => {
       const messagesCol = []
       await db
@@ -75,11 +74,10 @@ const SingleChat = props => {
    }
 
    // Does inital loading while waiting for chat logs
-
    useEffect(() => {
       setTimeout(() => {
          setIsLoading(false)
-      }, 2000)
+      }, 1200)
    })
 
    useEffect(
@@ -123,8 +121,10 @@ const SingleChat = props => {
                               <p id="timestamp">{message.timestamp}</p>
                            </div>
                         </div>
-                        <div className="sender-text">
-                           <p>{message.text}</p>
+                        <div className="sender-text-wrapper">
+                           <div className="sender-text">
+                              <p>{message.text}</p>
+                           </div>
                         </div>
                      </div>
                   )
