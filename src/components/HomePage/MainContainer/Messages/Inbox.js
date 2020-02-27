@@ -19,6 +19,8 @@ const Inbox = props => {
       setIsChat(true)
    }
 
+   // Checks to see with whom user has active chats with
+
    const getSenders = async () => {
       try {
          const sendersData = []
@@ -37,15 +39,18 @@ const Inbox = props => {
       }
    }
 
-   useEffect(() => {
-      getSenders()
-   }, [senders])
+   useEffect(
+      () => {
+         getSenders()
+      },
+      //eslint-disable-next-line
+      [senders]
+   )
+   
    return (
       <div className="inbox-title-wrapper">
          <div className="inbox-title">
             <p>Private Messages</p>
-            {/* <hr /> */}
-
             {isChat ? (
                <SingleChat target={targetState} />
             ) : (

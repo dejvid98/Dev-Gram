@@ -4,9 +4,11 @@ import SendMessage from './SendMessage'
 
 const MessagesMain = () => {
    const [layout, setLayout] = useState('inbox')
+   
    const handleLayout = targetLayout => {
       setLayout(targetLayout)
    }
+
    return (
       <div>
          {layout === 'inbox' ? <Inbox handleLayout={handleLayout} /> : null}

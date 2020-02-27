@@ -14,8 +14,6 @@ const StatusPoster = () => {
    const [firstNameState, setFirstNameState] = useState()
    const [lastNameState, setLastNameState] = useState()
 
-   const checkIfLoggedIn = () => {}
-
    if (!photoURLState) {
       setPhotoURLState(
          'https://pngimage.net/wp-content/uploads/2018/06/no-avatar-png-8.png'
@@ -62,8 +60,6 @@ const StatusPoster = () => {
                const lastName = fullNamee[1]
                setFirstNameState(firstName)
                setLastNameState(lastName)
-            } else {
-               currentUser = {}
             }
          })
       },

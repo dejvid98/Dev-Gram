@@ -8,7 +8,6 @@ const SendMessage = props => {
    const [message, setMessage] = useState('')
    const [receiver, setReceiver] = useState('')
    const [receiverName, setReceiverName] = useState('')
-   const target = props.target
 
    const handleMessage = e => {
       setMessage(e.target.value)
