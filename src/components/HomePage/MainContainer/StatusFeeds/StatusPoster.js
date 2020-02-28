@@ -5,7 +5,7 @@ import firebase, { db } from '../../../../firebase'
 
 const StatusPoster = () => {
    const currentUser = firebase.auth().currentUser
-   let [text, setText] = useState()
+   const [text, setText] = useState()
    const [photoURLState, setPhotoURLState] = useState()
    //eslint-disable-next-line
    const [displayNameState, setDisplayNameState] = useState()

@@ -3,12 +3,14 @@ import firebase, { db } from '../../../../firebase'
 import './Messages.scss'
 import SingleChat from './SingleChat'
 import Button from '@material-ui/core/Button'
+import ReactLoading from 'react-loading'
 
 const Inbox = props => {
    const currentUser = firebase.auth().currentUser
    const [senders, setSenders] = useState([])
    const [isChat, setIsChat] = useState(false)
    const [targetState, setTargetState] = useState()
+   const [isLoading, setIsLoading] = useState(true)
 
    const sendMessage = () => {
       props.handleLayout('sendMessage')
@@ -33,8 +35,10 @@ const Inbox = props => {
                })
                setSenders(sendersData)
             })
+         await setIsLoading(false)
       } catch (err) {
          console.log(err)
+         await setIsLoading(false)
       }
    }
 
@@ -50,14 +54,28 @@ const Inbox = props => {
       <div className="inbox-title-wrapper">
          <div className="inbox-title">
             <p>Private Messages</p>
+            {isLoading ? (
+               <div
+                  style={{
+                     marginLeft: '0rem',
+                     marginTop: '4rem',
+                     marginBottom: '3rem',
+                  }}
+               >
+                  <ReactLoading
+                     type={'spin'}
+                     color={'#ff7373'}
+                     height={200}
+                     width={200}
+                  />
+               </div>
+            ) : null}
             {isChat ? (
                <SingleChat target={targetState} />
             ) : (
                <div className="messages-wrapper">
                   {senders.length > 0 ? (
                      senders.map((sender, index) => {
-                        console.log(sender)
-
                         return (
                            <div
                               key={index}

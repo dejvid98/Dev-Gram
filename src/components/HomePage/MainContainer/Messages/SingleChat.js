@@ -54,32 +54,26 @@ const SingleChat = props => {
    // Listens for updates from database for chat logs
    // and updates them to the state
    const getChat = async () => {
-      const messagesCol = []
-      await db
-         .collection('messages')
-         .doc(currentUser.email)
-         .collection('senders')
-         .doc(props.target)
-         .collection('messages')
-         .orderBy('timestamp', 'desc')
-         .onSnapshot(querySnapshot => {
-            if (messagesCol.length > 0) {
-               messagesCol.length = 0
-            }
-            querySnapshot.forEach(doc => {
-               messagesCol.push(doc.data())
+      try {
+         await db
+            .collection('messages')
+            .doc(currentUser.email)
+            .collection('senders')
+            .doc(props.target)
+            .collection('messages')
+            .orderBy('timestamp', 'desc')
+            .onSnapshot(querySnapshot => {
+               setMessages([])
+               querySnapshot.forEach(doc => {
+                  setMessages(oldArr => [...oldArr, doc.data()])
+               })
             })
-            setMessages(messagesCol)
-         })
-   }
-
-   // Does inital loading while waiting for chat logs
-   useEffect(() => {
-      setTimeout(() => {
          setIsLoading(false)
-      }, 1200)
-   })
-
+      } catch (err) {
+         console.log(err)
+         setIsLoading(false)
+      }
+   }
    useEffect(
       () => {
          getChat()
@@ -94,42 +88,49 @@ const SingleChat = props => {
             {isLoading ? (
                <div
                   style={{
-                     marginLeft: '13rem',
+                     marginLeft: '0rem',
                      marginTop: '4rem',
                      marginBottom: '3rem',
                   }}
                >
                   <ReactLoading
                      type={'spin'}
-                     color={'#FF4136'}
+                     color={'#ff7373'}
                      height={200}
                      width={200}
                   />
                </div>
-            ) : messages.length > 0 ? (
-               messages.map((message, index) => {
-                  return (
-                     <div key={index} className="chat-bubble">
-                        <div className="sender-information">
-                           <div className="sender-avatar">
-                              <img src={message.senderPhoto} alt="avatar" />
-                           </div>
-                           <div className="sender-name-wrapper">
-                              <p className="sender-name">
-                                 {message.senderName}
-                              </p>
-                              <p id="timestamp">{message.timestamp}</p>
-                           </div>
-                        </div>
-                        <div className="sender-text-wrapper">
-                           <div className="sender-text">
-                              <p>{message.text}</p>
-                           </div>
-                        </div>
-                     </div>
-                  )
-               })
             ) : null}
+            {messages.length > 0
+               ? messages.map((message, index) => {
+                    return (
+                       <div key={index} className="chat-bubble">
+                          <div className="sender-information">
+                             <div className="sender-avatar">
+                                <img src={message.senderPhoto} alt="avatar" />
+                             </div>
+                             <div className="sender-name-wrapper">
+                                <p className="sender-name">
+                                   {message.senderName}
+                                </p>
+                                <p id="timestamp">{message.timestamp}</p>
+                             </div>
+                          </div>
+                          <div className="sender-text-wrapper">
+                             {message.senderEmail === currentUser.email ? (
+                                <div className="sender-text">
+                                   <p>{message.text}</p>
+                                </div>
+                             ) : (
+                                <div className="receiver-text">
+                                   <p>{message.text}</p>
+                                </div>
+                             )}
+                          </div>
+                       </div>
+                    )
+                 })
+               : null}
          </div>
          <div className="send-button-wrapper">
             <div className="send-buttons">

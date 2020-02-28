@@ -2,11 +2,13 @@ import React, { useState } from 'react'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 import firebase, { db } from '../../../../firebase'
+import ReactLoading from 'react-loading'
 
 const SendMessage = props => {
    const currentUser = firebase.auth().currentUser
    const [message, setMessage] = useState('')
    const [receiver, setReceiver] = useState('')
+   const [isLoading, setIsLoading] = useState(false)
    const defaultPhoto =
       'https://pngimage.net/wp-content/uploads/2018/06/no-avatar-png-8.png'
 
@@ -19,6 +21,7 @@ const SendMessage = props => {
    }
 
    const sendMessage = async () => {
+      setIsLoading(true)
       const time = new Date().toLocaleString()
       const storage = firebase.storage()
       const storageRef = storage.ref()
@@ -108,11 +111,12 @@ const SendMessage = props => {
                timestamp: time,
                receiverPhoto,
             })
+            .then(setIsLoading(false))
       } catch (err) {
          console.log(err)
       }
    }
-   
+
    const seeInbox = async () => {
       await sendMessage()
       await props.handleLayout('inbox')
@@ -125,27 +129,46 @@ const SendMessage = props => {
             <hr />
          </div>
          <div className="send-box">
-            <div className="receiver">
-               <p>Email : </p>
-               <TextField
-                  id="standard-basic"
-                  label="Receiver"
-                  value={receiver}
-                  onChange={handleReceiver}
-               />
-            </div>
-            <div className="message-text">
-               <p>Message Text</p>
-               <TextField
-                  id="standard-basic"
-                  fullWidth={true}
-                  multiline={true}
-                  rows="4"
-                  variant="outlined"
-                  value={message}
-                  onChange={handleMessage}
-               />
-            </div>
+            {isLoading ? (
+               <div
+                  style={{
+                     marginLeft: '0rem',
+                     marginTop: '4rem',
+                     marginBottom: '3rem',
+                  }}
+               >
+                  <ReactLoading
+                     type={'spin'}
+                     color={'#ff7373'}
+                     height={200}
+                     width={200}
+                  />
+               </div>
+            ) : (
+               <div>
+                  <div className="receiver">
+                     <p>Email : </p>
+                     <TextField
+                        id="standard-basic"
+                        label="Receiver"
+                        value={receiver}
+                        onChange={handleReceiver}
+                     />
+                  </div>
+                  <div className="message-text">
+                     <p>Message Text</p>
+                     <TextField
+                        id="standard-basic"
+                        fullWidth={true}
+                        multiline={true}
+                        rows="4"
+                        variant="outlined"
+                        value={message}
+                        onChange={handleMessage}
+                     />
+                  </div>
+               </div>
+            )}
          </div>
          <Button variant="contained" color="primary" onClick={seeInbox}>
             Send

@@ -139,6 +139,22 @@
 
 .sender-text {
    margin-top: 0.5rem;
+   background-color: #d9f4ff  ;
+   border-radius: 4rem;
+   display: flex;
+   display: inline-block;
+   padding: 1rem;
+   word-wrap: break-word;
+   white-space: initial;
+   max-width: 30rem;
+   p {
+      font-size: 1rem;
+      letter-spacing: 0.05rem;
+   }
+}
+
+.receiver-text {
+   margin-top: 0.5rem;
    background-color: #f2f2f2;
    border-radius: 4rem;
    display: flex;
