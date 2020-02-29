@@ -1,6 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react'
-import IconButton from '@material-ui/core/IconButton'
-import MenuIcon from '@material-ui/icons/Menu'
+
 import { AppContext } from '../../../Context'
 import firebase from '../../../firebase'
 
@@ -12,11 +11,6 @@ const UserProfile = () => {
    const [name, setName] = useState('Anonymous')
    //eslint-disable-next-line
    const [isMini, setIsMini] = isMiniContext
-
-   // Hides menu
-   const handleMini = () => {
-      setIsMini(!isMini)
-   }
 
    useEffect(() => {
       firebase.auth().onAuthStateChanged(function(user) {
@@ -35,16 +29,7 @@ const UserProfile = () => {
          <div className="profile-photo-interface">
             <img src={photo} id="avatarPhoto" alt="profile" />
          </div>
-         {isMini ? null : <p className="user-name-interface">{name}</p>}
-         <div>
-            <IconButton
-               aria-label="menu"
-               style={{ color: 'white' }}
-               onClick={handleMini}
-            >
-               <MenuIcon fontSize="large" />
-            </IconButton>
-         </div>
+         <p className="user-name-interface">{name}</p>
       </div>
    )
 }

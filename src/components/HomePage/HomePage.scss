@@ -13,44 +13,42 @@ body {
    height: 100vh;
 }
 
-#interface-container {
-   flex-basis: 20%;
-   display: flex;
-   flex-direction: column;
-   position: sticky;
-   height: 1px;
-   top: 56px;
+@keyframes expandMenu {
+   0% {
+      flex-basis: 4%;
+   }
+   100% {
+      flex-basis: 20%;
+   }
 }
 
-#interface-container-mini {
+#interface-container {
    flex-basis: 5%;
    display: flex;
    flex-direction: column;
    position: sticky;
    height: 1px;
    top: 56px;
+   p {
+      display: none;
+   }
+   &:hover {
+      animation: expandMenu 0s 1 alternate ease-in forwards;
+      p {
+         display: inline-flex;
+         transition-delay: 1s;
+      }
+   }
 }
 
 #main-container {
-   flex-basis: 70%;
-   background-color: #eeeeee;
-   height: 100rem;
-}
-
-#main-container-mini {
-   flex-basis: 95%;
+   flex-basis: 80%;
    background-color: #eeeeee;
    height: 100rem;
 }
 
 #side-container {
    flex-basis: 15%;
-   background-color: #eeeeee;
-   height: 100rem;
-}
-
-#side-container-mini {
-   flex-basis: 25%;
    background-color: #eeeeee;
    height: 100rem;
 }
@@ -69,6 +67,7 @@ body {
    margin-top: 1rem;
    flex-basis: 20%;
    margin-bottom: 1rem;
+   margin-right: 2rem;
 }
 
 .profile-photo-interface img {
@@ -94,6 +93,12 @@ body {
 .interface-navigation {
    display: flex;
    flex-direction: column;
+}
+
+.nav-item-bubble {
+   display: flex;
+   justify-content: center;
+   align-items: center;
 }
 
 .interface-navigation-item {
@@ -123,6 +128,12 @@ body {
       background-color: #e84545;
       color: white;
    }
+}
+
+.loader {
+   display: flex;
+   justify-content: center;
+   align-items: center;
 }
 
 .interface-icons {

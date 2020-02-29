@@ -72,3 +72,9 @@
       width: 13rem;
    }
 }
+
+@media (-webkit-min-device-pixel-ratio: 1.2) {
+   .hvr-underline-from-center {
+      width: 15rem;
+   }
+}

@@ -1,224 +1,262 @@
 @mixin backgroundImg {
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
+   background-position: center;
+   background-size: cover;
+   background-repeat: no-repeat;
+   -webkit-background-size: cover;
+   -moz-background-size: cover;
+   -o-background-size: cover;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    list-style: none;
-    font-size: 1em;
+   margin: 0;
+   padding: 0;
+   border: 0;
+   list-style: none;
+   font-size: 1em;
 }
 
 .join-buttons {
-    display: flex;
-    position: relative;
-    height: 2px;
-    div {
-        flex-basis: 6.9%;
-        position: relative;
-        height: 40rem;
-        display: flex;
-        justify-content: center;
-        align-items: flex-end;
-    }
+   display: flex;
+   position: relative;
+   height: 2px;
+   div {
+      flex-basis: 6.9%;
+      position: relative;
+      height: 40rem;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+   }
 }
 
 .register-form {
-    position: absolute;
-    display: flex;
-    top: 13.5rem;
-    padding: 3rem;
-    border: 3px solid rgba(155, 155, 155, 0.2);
-    height: 28rem;
-    width: 25rem;
-    border-radius: 15px;
-    flex-direction: column;
-    left: 40rem;
+   position: absolute;
+   display: flex;
+   top: 13.5rem;
+   padding: 3rem;
+   border: 3px solid rgba(155, 155, 155, 0.2);
+   height: 28rem;
+   width: 25rem;
+   border-radius: 15px;
+   flex-direction: column;
+   left: 40rem;
 }
 
 .login-form {
-    position: absolute;
-    display: flex;
-    top: 15rem;
-    padding: 3rem;
-    border: 3px solid rgba(155, 155, 155, 0.2);
-    height: 20rem;
-    width: 25rem;
-    border-radius: 15px;
-    flex-direction: column;
-    left: 40rem;
+   position: absolute;
+   display: flex;
+   top: 15rem;
+   padding: 3rem;
+   border: 3px solid rgba(155, 155, 155, 0.2);
+   height: 20rem;
+   width: 25rem;
+   border-radius: 15px;
+   flex-direction: column;
+   left: 40rem;
 }
 
 .errors-register {
-    display: flex;
-    flex-direction: column;
-    width: 25.5rem;
-    position: absolute;
-    left: 43rem;
-    top: 10rem;
+   display: flex;
+   flex-direction: column;
+   width: 25.5rem;
+   position: absolute;
+   left: 43rem;
+   top: 10rem;
 }
 
 .errors-login {
-    display: flex;
-    flex-direction: column;
-    width: 25.5rem;
-    position: absolute;
-    left: 43rem;
-    top: 11rem;
+   display: flex;
+   flex-direction: column;
+   width: 25.5rem;
+   position: absolute;
+   left: 43rem;
+   top: 11rem;
 }
 
 //Regular desktop screens
 @media (max-width: 1940px) {
-    .join-buttons {
-        display: flex;
-        position: relative;
-        height: 2px;
-        div {
-            flex-basis: 7.2%;
-            position: relative;
-            height: 40rem;
-            display: flex;
-            justify-content: center;
-            align-items: flex-end;
-        }
-    }
+   .join-buttons {
+      display: flex;
+      position: relative;
+      height: 2px;
+      div {
+         flex-basis: 7.2%;
+         position: relative;
+         height: 40rem;
+         display: flex;
+         justify-content: center;
+         align-items: flex-end;
+      }
+   }
 
-    .register-form {
-        top: 12rem;
-        width: 25rem;
-        left: 24rem;
-    }
+   .register-form {
+      top: 12rem;
+      width: 25rem;
+      left: 24rem;
+   }
 
-    .login-form {
-        top: 15rem;
-        width: 25rem;
-        left: 24rem;
-    }
+   .login-form {
+      top: 15rem;
+      width: 25rem;
+      left: 24rem;
+   }
 
-    .errors-register {
-        left: 26.5rem;
-        top: 8rem;
-    }
+   .errors-register {
+      left: 26.5rem;
+      top: 8rem;
+   }
 
-    .errors-login {
-        left: 26.5rem;
-        top: 11rem;
-    }
+   .errors-login {
+      left: 26.5rem;
+      top: 11rem;
+   }
 }
 
 @media (max-width: 1450px) {
-    .join-buttons {
-        div {
-            flex-basis: 7.7%;
-            height: 37rem;
-        }
-    }
+   .join-buttons {
+      div {
+         flex-basis: 7.7%;
+         height: 37rem;
+      }
+   }
 }
 
 .parent-div {
-    background-image: url('../../Assets/LandingPage/CoverReworked.png');
-    height: 100vh;
-    @include backgroundImg();
-    display: flex;
-    max-width: 100%;
-    flex-direction: column;
+   background-image: url('../../Assets/LandingPage/CoverReworked.png');
+   height: 100vh;
+   @include backgroundImg();
+   display: flex;
+   max-width: 100%;
+   flex-direction: column;
 }
 
 .register-div {
-    background-image: url('../../Assets/LandingPage/LoginPage.png');
-    height: 100vh;
-    display: flex;
-    @include backgroundImg();
-    max-width: 100%;
+   background-image: url('../../Assets/LandingPage/LoginPage.png');
+   height: 100vh;
+   display: flex;
+   @include backgroundImg();
+   max-width: 100%;
 }
 
 .name-fields {
-    display: flex;
+   display: flex;
 }
 
 .g-sign-in-button {
-    margin-top: 10px;
-    display: inline-block;
-    width: 400px;
-    height: 35px;
+   margin-top: 10px;
+   display: inline-block;
+   width: 400px;
+   height: 35px;
 
-    padding-top: 3px;
-    background-color: #fff;
-    color: #fff;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
-    transition: background-color 0.218s, border-color 0.218s, box-shadow 0.218s;
-    box-sizing: border-box;
-    border-radius: 5px;
-    text-align: center;
-    color: black;
-    &:hover {
-        cursor: pointer;
-        -webkit-box-shadow: 0 0 3px 3px rgba(66, 133, 244, 0.3);
-        box-shadow: 0 0 3px 3px rgba(66, 133, 244, 0.3);
-        box-sizing: border-box;
-    }
-    &:active {
-        background-color: #3367d6;
-        transition: background-color 0.2s;
-        box-sizing: border-box;
-    }
-    .content-wrapper {
-        height: 100%;
-        width: 100%;
-        border: 1px solid transparent;
-        box-sizing: border-box;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    img {
-        width: 18px;
-        height: 18px;
-        box-sizing: border-box;
-    }
+   padding-top: 3px;
+   background-color: #fff;
+   color: #fff;
+   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+   transition: background-color 0.218s, border-color 0.218s, box-shadow 0.218s;
+   box-sizing: border-box;
+   border-radius: 5px;
+   text-align: center;
+   color: black;
+   &:hover {
+      cursor: pointer;
+      -webkit-box-shadow: 0 0 3px 3px rgba(66, 133, 244, 0.3);
+      box-shadow: 0 0 3px 3px rgba(66, 133, 244, 0.3);
+      box-sizing: border-box;
+   }
+   &:active {
+      background-color: #3367d6;
+      transition: background-color 0.2s;
+      box-sizing: border-box;
+   }
+   .content-wrapper {
+      height: 100%;
+      width: 100%;
+      border: 1px solid transparent;
+      box-sizing: border-box;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+   }
+   img {
+      width: 18px;
+      height: 18px;
+      box-sizing: border-box;
+   }
 
-    .logo-wrapper {
-        padding: 15px;
-        background: #fff;
-        position: relative;
-        right: 1rem;
-        width: 5px;
-        bottom: 2px;
-        height: 2px;
-        border-radius: 1px;
-        background-image: url('http://uniquehealthinc.com/wp-content/uploads/2019/01/google-logo-icon-PNG-Transparent-Background-768x768.png');
-        background-position: center;
-        background-size: cover;
-        background-repeat: no-repeat;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-    }
-    .text-container {
-        font-family: Roboto, arial, sans-serif;
-        font-weight: 500;
-        letter-spacing: 0.21px;
-        font-size: 14px;
-        font-weight: 500;
-        line-height: 48px;
-        vertical-align: top;
-        margin-top: 4px;
-        border: none;
-        text-align: center;
-        width: 180px;
-        box-sizing: border-box;
-        position: relative;
-        right: 1rem;
-    }
+   .logo-wrapper {
+      padding: 15px;
+      background: #fff;
+      position: relative;
+      right: 1rem;
+      width: 5px;
+      bottom: 2px;
+      height: 2px;
+      border-radius: 1px;
+      background-image: url('http://uniquehealthinc.com/wp-content/uploads/2019/01/google-logo-icon-PNG-Transparent-Background-768x768.png');
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+   }
+   .text-container {
+      font-family: Roboto, arial, sans-serif;
+      font-weight: 500;
+      letter-spacing: 0.21px;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 48px;
+      vertical-align: top;
+      margin-top: 4px;
+      border: none;
+      text-align: center;
+      width: 180px;
+      box-sizing: border-box;
+      position: relative;
+      right: 1rem;
+   }
 }
 
 .redirect-text {
-    margin-top: 3rem;
-    margin-left: 6rem;
+   margin-top: 3rem;
+   margin-left: 6rem;
+}
+
+@media (-webkit-min-device-pixel-ratio: 1.1) {
+   .join-buttons {
+      position: relative;
+      bottom: 3rem;
+      right: 0rem;
+   }
+
+   .register-form {
+      top: 6rem;
+      padding: 3rem;
+      left: 22rem;
+   }
+
+   .login-form {
+      top: 10rem;
+      left: 22rem;
+   }
+}
+
+@media (-webkit-min-device-pixel-ratio: 1.2) {
+   .join-buttons {
+      position: relative;
+      bottom: 8rem;
+      right: 2rem;
+   }
+
+   .register-form {
+      top: 3rem;
+      padding: 3rem;
+      left: 18rem;
+   }
+
+   .login-form {
+      top: 8rem;
+      left: 16rem;
+   }
 }

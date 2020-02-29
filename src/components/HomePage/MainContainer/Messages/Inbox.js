@@ -55,13 +55,7 @@ const Inbox = props => {
          <div className="inbox-title">
             <p>Private Messages</p>
             {isLoading ? (
-               <div
-                  style={{
-                     marginLeft: '0rem',
-                     marginTop: '4rem',
-                     marginBottom: '3rem',
-                  }}
-               >
+               <div className="loader">
                   <ReactLoading
                      type={'spin'}
                      color={'#ff7373'}
@@ -137,7 +131,7 @@ const Inbox = props => {
                   color="primary"
                   onClick={sendMessage}
                >
-                  Send message
+                  Start a conversation
                </Button>
             )}
          </div>

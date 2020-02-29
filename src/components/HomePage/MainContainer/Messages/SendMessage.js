@@ -130,13 +130,7 @@ const SendMessage = props => {
          </div>
          <div className="send-box">
             {isLoading ? (
-               <div
-                  style={{
-                     marginLeft: '0rem',
-                     marginTop: '4rem',
-                     marginBottom: '3rem',
-                  }}
-               >
+               <div className="loader">
                   <ReactLoading
                      type={'spin'}
                      color={'#ff7373'}

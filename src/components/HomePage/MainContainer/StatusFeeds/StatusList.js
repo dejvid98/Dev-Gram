@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { db } from '../../../../firebase'
+import firebase, { db } from '../../../../firebase'
 import Status from './Status'
 import OrderBy from '../../../MicroComponents/OrderBy'
 
@@ -17,24 +17,12 @@ const StatusList = () => {
    useEffect(() => {
       const posts = db.collection('posts')
       let postsCollection = []
-      const mjau = () => {
-         switch (orderBy) {
-            case 'desc':
-               posts
-                  .orderBy('timestamp', 'desc')
-                  .onSnapshot(function(querySnapshot) {
-                     querySnapshot.forEach(function(doc) {
-                        postsCollection.push({
-                           id: doc.id,
-                           data: doc.data(),
-                        })
-                     })
-                     setPostsState(postsCollection)
-                     postsCollection = []
-                  })
-               break
-            case 'asc':
-               posts.orderBy('timestamp').onSnapshot(function(querySnapshot) {
+      console.log(firebase.auth().currentUser)
+      switch (orderBy) {
+         case 'desc':
+            posts
+               .orderBy('timestamp', 'desc')
+               .onSnapshot(function(querySnapshot) {
                   querySnapshot.forEach(function(doc) {
                      postsCollection.push({
                         id: doc.id,
@@ -44,23 +32,34 @@ const StatusList = () => {
                   setPostsState(postsCollection)
                   postsCollection = []
                })
-               break
-            case 'likes':
-               posts
-                  .orderBy('numberOfLikes', 'desc')
-                  .onSnapshot(function(querySnapshot) {
-                     querySnapshot.forEach(function(doc) {
-                        postsCollection.push({
-                           id: doc.id,
-                           data: doc.data(),
-                        })
-                     })
-                     setPostsState(postsCollection)
-                     postsCollection = []
+            break
+         case 'asc':
+            posts.orderBy('timestamp').onSnapshot(function(querySnapshot) {
+               querySnapshot.forEach(function(doc) {
+                  postsCollection.push({
+                     id: doc.id,
+                     data: doc.data(),
                   })
-               break
-            default:
-         }
+               })
+               setPostsState(postsCollection)
+               postsCollection = []
+            })
+            break
+         case 'likes':
+            posts
+               .orderBy('numberOfLikes', 'desc')
+               .onSnapshot(function(querySnapshot) {
+                  querySnapshot.forEach(function(doc) {
+                     postsCollection.push({
+                        id: doc.id,
+                        data: doc.data(),
+                     })
+                  })
+                  setPostsState(postsCollection)
+                  postsCollection = []
+               })
+            break
+         default:
       }
    }, [orderBy])
 
