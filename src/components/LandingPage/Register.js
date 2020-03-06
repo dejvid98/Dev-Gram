@@ -67,7 +67,7 @@ const Register = props => {
       try {
          firebase
             .auth()
-            .createUserWithEmailAndPassword(email, password)
+            .createUserWithEmailAndPassword(email.toLowerCase(), password)
             .then(function(result) {
                return result.user.updateProfile({
                   displayName: fullName,
@@ -78,9 +78,9 @@ const Register = props => {
             .then(
                db
                   .collection('users')
-                  .doc(email)
+                  .doc(email.toLowerCase())
                   .set({
-                     email,
+                     email:email.toLowerCase(),
                      firstName,
                      lastName,
                   })

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 import firebase, { db } from '../../../../firebase'
+import Error from '../../../MicroComponents/Error'
 
 const StatusPoster = () => {
    const currentUser = firebase.auth().currentUser
@@ -13,6 +14,7 @@ const StatusPoster = () => {
    const [fullNameState, setFullNameState] = useState()
    const [firstNameState, setFirstNameState] = useState()
    const [lastNameState, setLastNameState] = useState()
+   const [isError, setIsError] = useState(false)
 
    if (!photoURLState) {
       setPhotoURLState(
@@ -27,24 +29,32 @@ const StatusPoster = () => {
    // Creates a new post in database
    const handleSubmit = () => {
       const timestamp = new Date().toLocaleString()
-
-      db.collection('posts')
-         .add({
-            firstName: firstNameState,
-            lastName: lastNameState,
-            text,
-            photoURL: photoURLState,
-            timestamp,
-            numberOfLikes: 0,
-         })
-         .then(function() {
+      try {
+         if (text) {
+            db.collection('posts')
+               .add({
+                  firstName: firstNameState,
+                  lastName: lastNameState,
+                  text,
+                  photoURL: photoURLState,
+                  timestamp,
+                  numberOfLikes: 0,
+               })
+               .then(function() {
+                  setText('')
+               })
+               .catch(function(error) {
+                  console.error('Error writing document: ', error)
+               })
             setText('')
-         })
-         .catch(function(error) {
-            console.error('Error writing document: ', error)
-         })
-
-      setText('')
+         }
+      } catch (error) {
+         console.log(error)
+         setIsError(true)
+         setTimeout(() => {
+            setIsError(false)
+         }, 3000)
+      }
    }
 
    useEffect(
@@ -70,6 +80,7 @@ const StatusPoster = () => {
    return (
       <div className="status-poster">
          <h1 className="status-poster-title">What's on your mind?</h1>
+         {isError ? <Error errorText="Please login to post a status" /> : null}
          <TextField
             id="filled-full-width"
             style={{

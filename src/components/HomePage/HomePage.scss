@@ -10,16 +10,7 @@ body {
 
 .container-wrapper {
    display: flex;
-   height: 100vh;
-}
-
-@keyframes expandMenu {
-   0% {
-      flex-basis: 4%;
-   }
-   100% {
-      flex-basis: 20%;
-   }
+   height: 130vh;
 }
 
 #interface-container {
@@ -27,16 +18,16 @@ body {
    display: flex;
    flex-direction: column;
    position: sticky;
-   height: 1px;
+   height: 0px;
    top: 56px;
+   transition-duration: 0.3s;
    p {
       display: none;
    }
    &:hover {
-      animation: expandMenu 0s 1 alternate ease-in forwards;
+      flex-basis: 25%;
       p {
          display: inline-flex;
-         transition-delay: 1s;
       }
    }
 }
@@ -44,13 +35,13 @@ body {
 #main-container {
    flex-basis: 80%;
    background-color: #eeeeee;
-   height: 100rem;
+   height: 130rem;
 }
 
 #side-container {
    flex-basis: 15%;
    background-color: #eeeeee;
-   height: 100rem;
+   height: 130rem;
 }
 
 .user-profile {
