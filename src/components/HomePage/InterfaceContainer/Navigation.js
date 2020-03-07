@@ -8,7 +8,6 @@ import PhotoSizeSelectActualRoundedIcon from '@material-ui/icons/PhotoSizeSelect
 import AccountBoxRoundedIcon from '@material-ui/icons/AccountBoxRounded'
 import HelpOutlineRoundedIcon from '@material-ui/icons/HelpOutlineRounded'
 import { AppContext } from '../../../Context'
-import { Link } from 'react-router-dom'
 
 const Navigation = props => {
    const { interFaceNavigationContext } = useContext(AppContext)
@@ -25,63 +24,77 @@ const Navigation = props => {
    return (
       <div className="interface-navigation">
          {interfaceNavigation === 'newsFeed' ? (
-            <Link style={{ textDecoration: 'none' }}>
-               <div>
-                  <div
-                     className="interface-navigation-item"
-                     style={{
-                        color: 'white',
-                        backgroundColor: '#e84545',
-                     }}
-                     onClick={() => handleNavigation('newsFeed')}
-                  >
-                     <HomeRoundedIcon fontSize="inherit" />
-                     <p className="nav-text">News feed</p>
-                  </div>
-               </div>
-            </Link>
+            <div
+               className="interface-navigation-item"
+               style={{
+                  color: 'white',
+                  backgroundColor: '#e84545',
+                  cursor: 'pointer',
+               }}
+               onClick={() => handleNavigation('newsFeed')}
+            >
+               <HomeRoundedIcon fontSize="inherit" />
+               <p className="nav-text">News feed</p>
+            </div>
          ) : (
             <>
-               <Link style={{ textDecoration: 'none' }}>
-                  <div
-                     className="interface-navigation-item"
-                     style={{ color: 'white' }}
-                     onClick={() => handleNavigation('newsFeed')}
-                  >
-                     <HomeRoundedIcon fontSize="inherit" />
-                     <p className="nav-text">News feed</p>
-                  </div>
-               </Link>
+               <div
+                  className="interface-navigation-item"
+                  style={{ color: 'white', cursor: 'pointer' }}
+                  onClick={() => handleNavigation('newsFeed')}
+               >
+                  <HomeRoundedIcon fontSize="inherit" />
+                  <p className="nav-text">News feed</p>
+               </div>
             </>
          )}
          {interfaceNavigation === 'messages' ? (
-            <Link style={{ textDecoration: 'none' }}>
-               <div
-                  className="interface-navigation-item"
-                  style={{ color: 'white', backgroundColor: '#e84545' }}
-                  onClick={() => handleNavigation('messages')}
-               >
-                  <MessageRoundedIcon fontSize="inherit" />
-                  <p className="nav-text">Messages</p>
-               </div>
-            </Link>
+            <div
+               className="interface-navigation-item"
+               style={{
+                  color: 'white',
+                  backgroundColor: '#e84545',
+                  cursor: 'pointer',
+               }}
+               onClick={() => handleNavigation('messages')}
+            >
+               <MessageRoundedIcon fontSize="inherit" />
+               <p className="nav-text">Messages</p>
+            </div>
          ) : (
-            <Link style={{ textDecoration: 'none' }}>
-               <div
-                  className="interface-navigation-item"
-                  style={{ color: 'white' }}
-                  onClick={() => handleNavigation('messages')}
-               >
-                  <MessageRoundedIcon fontSize="inherit" />
-                  <p className="nav-text">Messages</p>
-               </div>
-            </Link>
+            <div
+               className="interface-navigation-item"
+               style={{ color: 'white', cursor: 'pointer' }}
+               onClick={() => handleNavigation('messages')}
+            >
+               <MessageRoundedIcon fontSize="inherit" />
+               <p className="nav-text">Messages</p>
+            </div>
+         )}
+         {interfaceNavigation === 'photos' ? (
+            <div
+               className="interface-navigation-item"
+               style={{
+                  color: 'white',
+                  backgroundColor: '#e84545',
+                  cursor: 'pointer',
+               }}
+               onClick={() => handleNavigation('photos')}
+            >
+               <PhotoSizeSelectActualRoundedIcon fontSize="inherit" />
+               <p className="nav-text">Photos</p>
+            </div>
+         ) : (
+            <div
+               className="interface-navigation-item"
+               style={{ color: 'white', cursor: 'pointer' }}
+               onClick={() => handleNavigation('photos')}
+            >
+               <PhotoSizeSelectActualRoundedIcon fontSize="inherit" />
+               <p className="nav-text">Photos</p>
+            </div>
          )}
 
-         <div className="interface-navigation-item" style={{ color: 'white' }}>
-            <PhotoSizeSelectActualRoundedIcon fontSize="inherit" />
-            <p className="nav-text">Photos</p>
-         </div>
          <div className="interface-navigation-item" style={{ color: 'white' }}>
             <PeopleAltRoundedIcon fontSize="inherit" />
             <p className="nav-text">Friends</p>

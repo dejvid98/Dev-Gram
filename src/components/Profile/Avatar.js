@@ -12,7 +12,6 @@ const Avatar = () => {
    const [photoState, setPhotoState] = useState(defaultPhoto)
 
    // Retrives photo url from databases That current user has uploaded
-
    const getPhotoURL = async () => {
       storageRef
          .child('avatars/' + email)
@@ -30,7 +29,6 @@ const Avatar = () => {
    }
 
    // Uploads photo to firestore
-
    const uploadPhoto = async e => {
       const file = e.target.files[0]
       const storageRef = await firebase.storage().ref('avatars/' + email)
@@ -38,8 +36,7 @@ const Avatar = () => {
       getPhotoURL()
    }
 
-   //Checks if photo is set, if not, it sets default picture
-
+   // Checks if photo is set, if not, it sets default picture
    const getPhoto = () => {
       if (photoURL !== null) {
          setPhotoState(photoURL)

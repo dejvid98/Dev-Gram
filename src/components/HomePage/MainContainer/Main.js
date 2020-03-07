@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import StatusMain from './StatusFeeds/StatusMain'
 import MessagesMain from './Messages/MessagesMain'
+import PhotosMain from './Photos/PhotosMain'
 import { AppContext } from '../../../Context'
 
 const MainContainer = props => {
@@ -19,6 +20,8 @@ const MainContainer = props => {
          case 'messages':
             return <MessagesMain />
 
+         case 'photos':
+            return <PhotosMain />
          default:
             return null
       }

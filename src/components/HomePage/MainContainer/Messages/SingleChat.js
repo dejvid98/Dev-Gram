@@ -17,7 +17,7 @@ const SingleChat = props => {
 
    const sendMessage = async e => {
       const time = new Date().toLocaleString()
-      if (message) {
+      if (message.trim().length > 0) {
          try {
             await db
                .collection('messages')
@@ -55,8 +55,10 @@ const SingleChat = props => {
    }
 
    const handleSendButton = e => {
-      e.preventDefault()
-      sendMessage()
+      if (message.trim().length > 0) {
+         e.preventDefault()
+         sendMessage()
+      }
    }
 
    // Listens for updates from database for chat logs

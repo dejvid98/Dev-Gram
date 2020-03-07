@@ -1,5 +1,4 @@
 import React, { useState, useContext, useEffect } from 'react'
-
 import { AppContext } from '../../../Context'
 import firebase from '../../../firebase'
 

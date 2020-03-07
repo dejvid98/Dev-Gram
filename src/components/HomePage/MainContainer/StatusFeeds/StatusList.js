@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import firebase, { db } from '../../../../firebase'
+import { db } from '../../../../firebase'
 import Status from './Status'
 import OrderBy from '../../../MicroComponents/OrderBy'
 
@@ -17,7 +17,6 @@ const StatusList = () => {
    useEffect(() => {
       const posts = db.collection('posts')
       let postsCollection = []
-      console.log(firebase.auth().currentUser)
       switch (orderBy) {
          case 'desc':
             posts

@@ -99,7 +99,7 @@ const StatusPoster = () => {
             onChange={handleText}
             value={text}
          />
-         <Button variant="contained" color="primary" onClick={handleSubmit}>
+         <Button variant="contained" color="secondary" onClick={handleSubmit}>
             Submit
          </Button>
       </div>
