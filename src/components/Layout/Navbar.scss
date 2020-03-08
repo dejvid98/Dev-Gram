@@ -1,8 +1,17 @@
 .logged-in-navbar {
-   position: absolute;
-   justify-content: center;
    display: flex;
-   height: 40px;
+   width: 100%;
+}
+
+.nav-logo-img {
+   margin-left: 2rem;
+   flex-basis: 20%;
+}
+
+.nav-buttons {
+   display: flex;
+   flex-basis: 53%;
+   justify-content: center;
 }
 
 .hvr-underline-from-center {

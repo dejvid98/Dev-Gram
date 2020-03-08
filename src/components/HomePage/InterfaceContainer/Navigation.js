@@ -8,6 +8,7 @@ import PhotoSizeSelectActualRoundedIcon from '@material-ui/icons/PhotoSizeSelect
 import AccountBoxRoundedIcon from '@material-ui/icons/AccountBoxRounded'
 import HelpOutlineRoundedIcon from '@material-ui/icons/HelpOutlineRounded'
 import { AppContext } from '../../../Context'
+import { Link } from 'react-router-dom'
 
 const Navigation = props => {
    const { interFaceNavigationContext } = useContext(AppContext)
@@ -100,10 +101,31 @@ const Navigation = props => {
             <p className="nav-text">Friends</p>
          </div>
 
-         <div className="interface-navigation-item" style={{ color: 'white' }}>
-            <AccountBoxRoundedIcon fontSize="inherit" />
-            <p className="nav-text">Profile</p>
-         </div>
+         {interfaceNavigation === 'profile' ? (
+            <Link to="/profile" style={{ textDecoration: 'none' }}>
+               <div
+                  className="interface-navigation-item"
+                  style={{
+                     color: 'white',
+                     backgroundColor: '#e84545',
+                     cursor: 'pointer',
+                  }}
+               >
+                  <AccountBoxRoundedIcon fontSize="inherit" />
+                  <p className="nav-text">Profile</p>
+               </div>
+            </Link>
+         ) : (
+            <Link to="/profile" style={{ textDecoration: 'none' }}>
+               <div
+                  className="interface-navigation-item"
+                  style={{ color: 'white', cursor: 'pointer' }}
+               >
+                  <AccountBoxRoundedIcon fontSize="inherit" />
+                  <p className="nav-text">Profile</p>
+               </div>
+            </Link>
+         )}
 
          <div className="interface-navigation-item" style={{ color: 'white' }}>
             <EventAvailableRoundedIcon fontSize="inherit" />

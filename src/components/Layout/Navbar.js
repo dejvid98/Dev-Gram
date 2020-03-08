@@ -30,17 +30,18 @@ const Navbar = props => {
                   <img className="nav-logo-img" src={NavLogoImg} alt="logo" />
                </Link>
             </div>
-
-            <NavBarButton name="Home" link="/home" />
-            <NavBarButton name="Contact Us" link="/help" />
-            {isLoggedIn ? (
-               <>
-                  <NavBarButton name="Profile" link="/profile" />
-                  <NavBarButton name="Log Out" link="/" logOut={logOut} />
-               </>
-            ) : (
-               <NavBarButton name="Login" link="/login" />
-            )}
+            <div className="nav-buttons">
+               <NavBarButton name="Home" link="/home" />
+               <NavBarButton name="Contact Us" link="/help" />
+               {isLoggedIn ? (
+                  <>
+                     <NavBarButton name="Profile" link="/profile" />
+                     <NavBarButton name="Log Out" link="/" logOut={logOut} />
+                  </>
+               ) : (
+                  <NavBarButton name="Login" link="/login" />
+               )}
+            </div>
          </div>
       </div>
    )

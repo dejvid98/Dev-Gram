@@ -17,23 +17,22 @@ const LoggedInPhotos = () => {
       const file = e.target.files[0]
       const storageRef = await firebase
          .storage()
-         .ref(`${email}/${Math.random() * 200}`)
+         .ref(`photos/${email}/${Math.random() * 200}`)
       await storageRef.put(file)
       await setIsUploaded(true)
-      await setTimeout(() => setIsUploaded(false), 3000)
+      await setTimeout(() => setIsUploaded(false), 4000)
       await getPhotos()
    }
 
    const getPhotos = async () => {
       const storage = firebase.storage()
       const storageRef = storage.ref()
-      const listRef = storageRef.child(`${email}`)
+      const listRef = storageRef.child(`photos/${email}`)
       setPhotos([])
       try {
          await listRef.listAll().then(function(res) {
             res.items.forEach(async function(itemRef) {
                const metaData = await itemRef.getMetadata()
-               //    const createdAt = metaData.i.timeCreated
                const createdAt = metaData.timeCreated
                itemRef.getDownloadURL().then(function(url) {
                   setPhotos(photos => [
