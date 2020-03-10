@@ -159,8 +159,10 @@ const Inbox = props => {
                isChat ? null : (
                   <Button
                      variant="contained"
-                     color="primary"
+                     color="secondary"
                      onClick={sendMessage}
+                     size="large"
+                     style={{ borderRadius: '5rem' }}
                   >
                      Start a conversation
                   </Button>

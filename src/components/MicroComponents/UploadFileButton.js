@@ -22,7 +22,7 @@ const UploadFileButton = props => {
                   width: '15rem',
                   marginLeft: '2rem',
                   marginTop: '2rem',
-                  borderRadius: '2rem',
+                  borderRadius: props.radius || '2rem',
                   position: 'relative',
                   right: '1rem',
                }}

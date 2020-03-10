@@ -99,7 +99,13 @@ const StatusPoster = () => {
             onChange={handleText}
             value={text}
          />
-         <Button variant="contained" color="secondary" onClick={handleSubmit}>
+         <Button
+            variant="contained"
+            color="secondary"
+            onClick={handleSubmit}
+            style={{ borderRadius: '5rem' }}
+            size="large"
+         >
             Submit
          </Button>
       </div>

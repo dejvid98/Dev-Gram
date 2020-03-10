@@ -73,6 +73,7 @@ const LoggedInPhotos = () => {
             title="Upload"
             color="secondary"
             onClick={uploadPhoto}
+            radius="10rem"
          />
          <div className="photos-list">
             {isLoading ? (
