@@ -97,6 +97,37 @@ const LoggedInPhotos = () => {
                )
             })}
          </div>
+         {photos.length < 1 ? (
+            <div
+               style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+               }}
+            >
+               <p
+                  style={{
+                     fontSize: 30,
+                     color: 'gray',
+                     marginTop: '10rem',
+                     letterSpacing: '2px',
+                  }}
+               >
+                  You don't have any photos
+               </p>
+               <p
+                  style={{
+                     fontSize: 20,
+                     color: 'gray',
+                     marginTop: '1rem',
+                     letterSpacing: '1px',
+                  }}
+               >
+                  Hit the upload button!
+               </p>
+            </div>
+         ) : null}
       </div>
    )
 }

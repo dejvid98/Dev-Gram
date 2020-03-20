@@ -80,9 +80,11 @@ const Register = props => {
                   .collection('users')
                   .doc(email.toLowerCase())
                   .set({
-                     email:email.toLowerCase(),
+                     email: email.toLowerCase(),
                      firstName,
                      lastName,
+                     photoURL:
+                        'https://pngimage.net/wp-content/uploads/2018/06/no-avatar-png-8.png',
                   })
             )
             .then(() => {

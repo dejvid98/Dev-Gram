@@ -1,0 +1,24 @@
+.add-friend-wrapper {
+   display: flex;
+   position: relative;
+   left: 2rem;
+}
+
+.plus-icon-wrapper {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background-color: #25d366;
+   border-radius: 15rem;
+   padding-right: 11px;
+   padding-left: 11px;
+   padding-top: 11px;
+   padding-bottom: 11px;
+   position: relative;
+   right: 2rem;
+   cursor: pointer;
+
+   p {
+      font-size: 30px;
+   }
+}

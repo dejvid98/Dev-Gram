@@ -96,10 +96,29 @@ const Navigation = props => {
             </div>
          )}
 
-         <div className="interface-navigation-item" style={{ color: 'white' }}>
-            <PeopleAltRoundedIcon fontSize="inherit" />
-            <p className="nav-text">Friends</p>
-         </div>
+         {interfaceNavigation === 'friends' ? (
+            <div
+               className="interface-navigation-item"
+               style={{
+                  color: 'white',
+                  backgroundColor: '#e84545',
+                  cursor: 'pointer',
+               }}
+               onClick={() => handleNavigation('friends')}
+            >
+               <PeopleAltRoundedIcon fontSize="inherit" />
+               <p className="nav-text">Friends</p>
+            </div>
+         ) : (
+            <div
+               className="interface-navigation-item"
+               style={{ color: 'white', cursor: 'pointer' }}
+               onClick={() => handleNavigation('friends')}
+            >
+               <PeopleAltRoundedIcon fontSize="inherit" />
+               <p className="nav-text">Friends</p>
+            </div>
+         )}
 
          {interfaceNavigation === 'profile' ? (
             <Link to="/profile" style={{ textDecoration: 'none' }}>
