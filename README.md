@@ -2,13 +2,12 @@
 
 ##### _Social media for developers made with React & Firebase_
 
----
+
 
 [Live version](https://devgram.netlify.com/)
 
 ## Features
 
----
 
 - **News feed / Status posting**
 
@@ -24,7 +23,6 @@
 
 ## Installation
 
----
 
 ```
     $ npm install
