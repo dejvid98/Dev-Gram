@@ -6,7 +6,6 @@ import EventAvailableRoundedIcon from '@material-ui/icons/EventAvailableRounded'
 import SettingsApplicationsRoundedIcon from '@material-ui/icons/SettingsApplicationsRounded'
 import PhotoSizeSelectActualRoundedIcon from '@material-ui/icons/PhotoSizeSelectActualRounded'
 import AccountBoxRoundedIcon from '@material-ui/icons/AccountBoxRounded'
-import HelpOutlineRoundedIcon from '@material-ui/icons/HelpOutlineRounded'
 import { AppContext } from '../../../Context'
 import { Link } from 'react-router-dom'
 
@@ -154,11 +153,6 @@ const Navigation = props => {
          <div className="interface-navigation-item" style={{ color: 'white' }}>
             <SettingsApplicationsRoundedIcon fontSize="inherit" />
             <p className="nav-text">Settings</p>
-         </div>
-
-         <div className="interface-navigation-item" style={{ color: 'white' }}>
-            <HelpOutlineRoundedIcon fontSize="inherit" />
-            <p className="nav-text">Help</p>
          </div>
       </div>
    )
